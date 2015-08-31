@@ -13,7 +13,7 @@
 	<version>0.1.0-SNAPSHOT</version>
 
 	<name>ImageJ Scripting</name>
-	<description>ImageJ Scripting: ImageJ applications for SciJava script languages.</description>
+	<description>ImageJ applications and examples for SciJava script languages.</description>
 	<inceptionYear>2015</inceptionYear>
 
 	<developers>
