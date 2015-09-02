@@ -1,5 +1,5 @@
-# @UIService ui
 # @OpService ops
+# @UIService ui
 # @net.imagej.Dataset inputData
 
 from net.imglib2.img.display.imagej import ImageJFunctions
