@@ -1,13 +1,15 @@
 # @OpService ops
 # @UIService ui
-# @net.imagej.Dataset inputData
+# @net.imagej.Dataset data
 
 from net.imagej.ops import Ops
+from net.imagej.axis import Axes
 
-dimensionToProject=2
+# get the dimension to project
+pDim = data.dimensionIndex(Axes.Z);
 
 # generate the projected dimension
-projectedDimensions=[inputData.dimension(x) for x in range(0, inputData.numDimensions()) if x!=dimensionToProject]
+projectedDimensions=[data.dimension(x) for x in range(0, data.numDimensions()) if x!=pDim]
 print projectedDimensions
 
 # create memory for projections
@@ -15,19 +17,19 @@ maxProjection=ops.create().img(projectedDimensions)
 sumProjection=ops.create().img(projectedDimensions)
 
 # use op service to get the max op
-maxOp = ops.op(Ops.Stats.Max, inputData)
+maxOp = ops.op(Ops.Stats.Max, data)
 # use op service to get the sum op
-sumOp = ops.op(Ops.Stats.Sum, sumProjection.firstElement(), inputData)
+sumOp = ops.op(Ops.Stats.Sum, sumProjection.firstElement(), data)
 
 # call the project op passing
 # maxProjection: img to put projection in
 # image: img to project
 # op: the op used to generate the projection (in this case "max")
 # dimensionToProject: the dimension to project
-ops.image().project(maxProjection, inputData, maxOp, dimensionToProject)
+ops.image().project(maxProjection, data, maxOp, pDim)
 
 # project again this time use sum projection
-ops.image().project(sumProjection, inputData, sumOp, dimensionToProject)
+ops.image().project(sumProjection, data, sumOp, pDim)
 
 # display the results
 ui.show("max projection", maxProjection)
