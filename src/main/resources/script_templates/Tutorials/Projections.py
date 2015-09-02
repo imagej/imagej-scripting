@@ -1,12 +1,12 @@
 # @OpService ops
 # @UIService ui
-# @net.imagej.Dataset data
+# @Dataset data
 
 from net.imagej.ops import Ops
 from net.imagej.axis import Axes
 
 # get the dimension to project
-pDim = data.dimensionIndex(Axes.Z);
+pDim = data.dimensionIndex(Axes.Z)
 
 # generate the projected dimension
 projectedDimensions=[data.dimension(x) for x in range(0, data.numDimensions()) if x!=pDim]
