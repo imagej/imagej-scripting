@@ -1,5 +1,5 @@
 # @OpService ops
-# @DisplayService display
+# @UIService ui
 # @net.imagej.Dataset inputData
 
 from net.imagej.ops import Ops
@@ -30,5 +30,5 @@ ops.image().project(maxProjection, inputData, maxOp, dimensionToProject)
 ops.image().project(sumProjection, inputData, sumOp, dimensionToProject)
 
 # display the results
-display.createDisplay("max projection", maxProjection)
-display.createDisplay("sum projection", sumProjection)
+ui.show("max projection", maxProjection)
+ui.show("sum projection", sumProjection)

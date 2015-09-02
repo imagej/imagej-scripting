@@ -1,6 +1,5 @@
 # @OpService ops
 # @net.imagej.Dataset inputData
-# @DisplayService display
 # @UIService ui
 
 from net.imagej.ops import Ops
@@ -24,7 +23,6 @@ thresholded=ops.create().img(inputData.getImgPlus(), BitType())
 ops.slicewise(thresholded, inputData.getImgPlus(), otsu, [0,1])
 
 # create an ImgPlus using the thresholded img, copy meta data from the input
-#thresholdedPlus=ImgPlus(thresholded, inputData.getImgPlus())
-thresholdedPlus=ImgPlus(thresholded)
+thresholdedPlus=ImgPlus(thresholded, inputData.getImgPlus(), True)
 
-display.createDisplay("thresholded", thresholdedPlus)
+ui.show("thresholded", thresholdedPlus)

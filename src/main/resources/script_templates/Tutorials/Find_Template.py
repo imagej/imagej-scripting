@@ -1,5 +1,5 @@
-# @DisplayService display
 # @OpService ops
+# @UIService ui
 # @net.imagej.Dataset image
 # @net.imagej.Dataset template
 
@@ -11,7 +11,6 @@ http://fiji.sc/ImgLib2_Examples#Example_6c_-_Complex_numbers_and_Fourier_transfo
 for which the code and images can be found
 
 https://github.com/imglib/imglib2-tutorials
-
 '''
 
 from net.imglib2.img.display.imagej import ImageJFunctions;
@@ -55,9 +54,9 @@ for  t in templateFFT:
 templateInverse=ops.create().img([template.dimension(0), template.dimension(1)])
 
 ops.filter().ifft(templateInverse, templateFFT)
-display.createDisplay("template inverse", templateInverse)
+ui.show("template inverse", templateInverse)
 
 # convolve templateInverse with image
 final=ops.filter().convolve(image, templateInverse);
-display.createDisplay("final", final)
+ui.show("final", final)
 	
