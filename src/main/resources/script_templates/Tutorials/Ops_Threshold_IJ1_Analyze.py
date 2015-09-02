@@ -1,4 +1,4 @@
-# @DisplayService display
+# @UIService ui
 # @OpService ops
 # @net.imagej.Dataset inputData
 
@@ -12,11 +12,11 @@ logKernel=ops.create().kernelLog(inputData.numDimensions(), 3.0);
 logFiltered=ops.filter().convolve(inputData, logKernel);
 
 # display log filter result
-display.createDisplay("log", logFiltered);
+ui.show("log", logFiltered);
 
 # otsu threshold and display
 thresholded = ops.threshold().otsu(logFiltered)
-display.createDisplay("thresholded", thresholded);
+ui.show("thresholded", thresholded);
 
 # convert to imagej1 imageplus so we can run analyze particles
 impThresholded=ImageJFunctions.wrap(thresholded, "wrapped")
