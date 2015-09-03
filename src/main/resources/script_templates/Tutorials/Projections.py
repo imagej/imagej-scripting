@@ -9,7 +9,7 @@ from net.imagej.axis import Axes
 pDim = data.dimensionIndex(Axes.Z);
 
 # generate the projected dimension
-projectedDimensions=[data.dimension(x) for x in range(0, data.numDimensions()) if x!=pDim]
+projectedDimensions=[data.dimension(d) for d in range(0, data.numDimensions()) if d!=pDim]
 print projectedDimensions
 
 # create memory for projections
