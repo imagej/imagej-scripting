@@ -11,18 +11,18 @@ from java.lang import Integer
 logKernel=ops.create().kernelLog(Integer(inputData.numDimensions()), sigma);
 
 # convolve with log kernel
-logFiltered=ops.filter().convolve(inputData, logKernel);
+logFiltered=ops.filter().convolve(inputData, logKernel)
 
 # display log filter result
-ui.show("log", logFiltered);
+ui.show("log", logFiltered)
 
 # otsu threshold and display
 thresholded = ops.threshold().otsu(logFiltered)
-ui.show("thresholded", thresholded);
+ui.show("thresholded", thresholded)
 
 # convert to imagej1 imageplus so we can run analyze particles
 impThresholded=ImageJFunctions.wrap(thresholded, "wrapped")
 
 # convert to mask and analyze particles
 IJ.run(impThresholded, "Convert to Mask", "")
-IJ.run(impThresholded, "Analyze Particles...", "display add");
+IJ.run(impThresholded, "Analyze Particles...", "display add")

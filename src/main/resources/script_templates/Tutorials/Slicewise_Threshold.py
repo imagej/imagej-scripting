@@ -1,5 +1,5 @@
 # @OpService ops
-# @net.imagej.Dataset data
+# @Dataset data
 # @UIService ui
 
 from net.imagej.ops import Ops
@@ -13,13 +13,13 @@ from net.imagej.axis import Axes
 for d in range(data.numDimensions()):
 	print "axis d: type: "+str(data.axis(d).type())+" length: "+str(data.dimension(d))
 
-xDim = data.dimensionIndex(Axes.X);
-yDim = data.dimensionIndex(Axes.Y);
-zDim = data.dimensionIndex(Axes.Z);
-cDim = data.dimensionIndex(Axes.CHANNEL);
+xDim = data.dimensionIndex(Axes.X)
+yDim = data.dimensionIndex(Axes.Y)
+zDim = data.dimensionIndex(Axes.Z)
+cDim = data.dimensionIndex(Axes.CHANNEL)
 
 # create the otsu op
-otsu=ops.op(Ops.Threshold.Otsu, data);
+otsu=ops.op(Ops.Threshold.Otsu, data)
 
 # create memory for the thresholded image
 thresholded=ops.create().img(data.getImgPlus(), BitType())

@@ -1,5 +1,5 @@
 # @OpService ops
-# @net.imagej.Dataset data
+# @Dataset data
 # @UIService ui
 # @DisplayService display
 
@@ -15,10 +15,10 @@ for d in range(data.numDimensions()):
 
 img=data.getImgPlus()
 
-xLen = data.dimension(data.dimensionIndex(Axes.X));
-yLen = data.dimension(data.dimensionIndex(Axes.Y));
-zLen = data.dimension(data.dimensionIndex(Axes.Z));
-cLen = data.dimension(data.dimensionIndex(Axes.CHANNEL));
+xLen = data.dimension(data.dimensionIndex(Axes.X))
+yLen = data.dimension(data.dimensionIndex(Axes.Y))
+zLen = data.dimension(data.dimensionIndex(Axes.Z))
+cLen = data.dimension(data.dimensionIndex(Axes.CHANNEL))
 
 # crop a channel
 c0=ops.image().crop(img, Intervals.createMinMax(0, 0, 0,0,xLen-1, yLen-1, 0, zLen-1))
@@ -41,6 +41,4 @@ ui.show(c0)
 ui.show(z12)
 ui.show(c0z12)
 ui.show(roiC0z12)
-
-
 
