@@ -1,12 +1,13 @@
 # @OpService ops
 # @UIService ui
-# @net.imagej.Dataset inputData
+# @Dataset inputData
 
 from net.imglib2.img.display.imagej import ImageJFunctions
 from ij import IJ
+from java.lang import Integer
 
 # create a log kernel
-logKernel=ops.create().kernelLog(inputData.numDimensions(), 3.0);
+logKernel=ops.create().kernelLog(Integer(inputData.numDimensions()), 3.0);
 
 # convolve with log kernel
 logFiltered=ops.filter().convolve(inputData, logKernel);
