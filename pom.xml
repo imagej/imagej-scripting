@@ -10,7 +10,7 @@
 	</parent>
 
 	<artifactId>imagej-scripting</artifactId>
-	<version>0.1.1-SNAPSHOT</version>
+	<version>0.2.0-SNAPSHOT</version>
 
 	<name>ImageJ Scripting</name>
 	<description>ImageJ applications and examples for SciJava script languages.</description>
@@ -110,10 +110,6 @@
 		<dependency>
 			<groupId>org.scijava</groupId>
 			<artifactId>scripting-jython</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.scijava</groupId>
-			<artifactId>scripting-matlab</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.scijava</groupId>
