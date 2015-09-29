@@ -2,6 +2,12 @@
 # @UIService ui
 # @Dataset data
 
+# Run this tutorial using the C0 image generated in the 'Crop Confocal Series' tutorial.
+
+# To generate the C0 image, do the following:
+# Go to 'file>Open Samples>Confocal Series' and make sure confocal-series.tif is the active image and
+# run the Crop Confocal Series tutorial.
+
 from net.imagej.ops import Ops
 from net.imagej.axis import Axes
 
