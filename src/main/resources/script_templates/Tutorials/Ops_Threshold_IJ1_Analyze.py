@@ -3,6 +3,12 @@
 # @Dataset inputData
 # @Double sigma
 
+# Run this tutorial using the C0Z16 image generated in the 'Crop Confocal Series' tutorial.
+
+# To generate the C0Z16 image, do the following:
+# Go to 'file>Open Samples>Confocal Series' and make sure confocal-series.tif is the active image and 
+# run the Crop Confocal Series tutorial.
+
 from net.imglib2.img.display.imagej import ImageJFunctions
 from ij import IJ
 from java.lang import Integer
