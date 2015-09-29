@@ -3,6 +3,12 @@
 # @Dataset image
 # @Dataset template
 
+# Run this tutorial using the C0Z12 and roiC0Z12 images generated in the 'Crop Confocal Series' tutorial.
+
+# To generate the C0Z12 and roiC0Z12 images, do the following:
+# Go to 'file>Open Samples>Confocal Series' and make sure confocal-series.tif is the active image and
+# run the Crop Confocal Series tutorial.
+
 '''
 This example is an 'ops' version of:
 
