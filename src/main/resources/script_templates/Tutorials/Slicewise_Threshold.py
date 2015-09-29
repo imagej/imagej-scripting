@@ -2,6 +2,9 @@
 # @Dataset data
 # @UIService ui
 
+# To run this tutorial, go to 'file>Open Samples>Confocal Series' and make sure that
+# confocal-series.tif is the active image
+
 from net.imagej.ops import Ops
 from net.imagej import ImgPlus
 from net.imglib2 import FinalDimensions
