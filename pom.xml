@@ -18,28 +18,19 @@
 
 	<developers>
 		<developer>
-			<id>dietzc</id>
-			<name>Christian Dietz</name>
-			<email>christian.dietz@uni-konstanz.de</email>
-			<url>http://www.informatik.uni-konstanz.de/berthold/mitglieder/christian-dietz/</url>
-			<organization>University of Konstanz</organization>
-			<organizationUrl>http://www.informatik.uni-konstanz.de/</organizationUrl>
-			<roles>
-				<role>architect</role>
-				<role>developer</role>
-			</roles>
-			<timezone>+1</timezone>
-		</developer>
-		<developer>
 			<id>hinerm</id>
 			<name>Mark Hiner</name>
 			<email>hiner@wisc.edu</email>
-			<url>http://developer.imagej.net/users/hinerm</url>
+			<url>http://loci.wisc.edu/people/mark-hiner</url>
 			<organization>UW-Madison LOCI</organization>
 			<organizationUrl>http://loci.wisc.edu/</organizationUrl>
 			<roles>
-				<role>architect</role>
+				<role>lead</role>
 				<role>developer</role>
+				<role>debugger</role>
+				<role>reviewer</role>
+				<role>support</role>
+				<role>maintainer</role>
 			</roles>
 			<timezone>-6</timezone>
 		</developer>
@@ -51,21 +42,27 @@
 			<organization>UW-Madison LOCI</organization>
 			<organizationUrl>http://loci.wisc.edu/</organizationUrl>
 			<roles>
-				<role>architect</role>
+				<role>founder</role>
+				<role>lead</role>
 				<role>developer</role>
+				<role>debugger</role>
+				<role>reviewer</role>
+				<role>support</role>
+				<role>maintainer</role>
 			</roles>
 			<timezone>-6</timezone>
 		</developer>
-		<developer>
-			<id>bnorthan</id>
-			<name>Brian Northan</name>
-			<email>bnorthan@gmail.com</email>
-			<url>www.linkedin.com/pub/brian-northan/6/860/3a7</url>
-			<roles>
-				<role>developer</role>
-			</roles>
-		</developer>
 	</developers>
+	<contributors>
+		<contributor>
+			<name>Brian Northan</name>
+			<properties><id>bnorthan</id></properties>
+		</contributor>
+		<contributor>
+			<name>Ellen Arena</name>
+			<properties><id>etarena</id></properties>
+		</contributor>
+	</contributors>
 
 	<scm>
 		<connection>scm:git:git://github.com/imagej/imagej-scripting</connection>
@@ -206,5 +203,4 @@ Wisconsin-Madison.</organizationName>
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
