@@ -86,6 +86,11 @@
 		</repository>
 	</repositories>
 
+	<properties>
+		<scripting-renjin.version>0.1.0</scripting-renjin.version>
+		<scijava.jvm.version>1.8</scijava.jvm.version>
+	</properties>
+
 	<dependencies>
 		<!-- ImageJ dependencies -->
 		<dependency>
@@ -131,6 +136,11 @@
 		<dependency>
 			<groupId>org.scijava</groupId>
 			<artifactId>scripting-jruby</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.scijava</groupId>
+			<artifactId>scripting-renjin</artifactId>
+			<version>${scripting-renjin.version}</version>
 		</dependency>
 
 		<!-- Test scope dependencies -->
