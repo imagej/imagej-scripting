@@ -1,7 +1,10 @@
 # @OpService ops
 # @Dataset data
 # @UIService ui
-# @DisplayService display
+# @OUTPUT ImgPlus c0
+# @OUTPUT ImgPlus z12
+# @OUTPUT ImgPlus c0z12
+# @OUTPUT ImgPlus roiC0z12
 
 # to run this tutorial run 'file->Open Samples->Confocal Series' and make sure that
 # confocal-series.tif is the active image
@@ -35,10 +38,3 @@ c0z12.setName("c0z12")
 # crop an roi at channel 0, z=12
 roiC0z12=ops.image().crop(img, Intervals.createMinMax(150,150,0,12, 200, 200, 0, 12))
 roiC0z12.setName("roiC0z12")
-
-# display all the cropped images
-ui.show(c0)
-ui.show(z12)
-ui.show(c0z12)
-ui.show(roiC0z12)
-

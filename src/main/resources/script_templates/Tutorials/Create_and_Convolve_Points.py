@@ -1,15 +1,19 @@
-# @DisplayService display
 # @OpService ops
 # @int(value=128) xSize
 # @int(value=128) ySize
 # @int(value=128) zSize
+# @OUTPUT ImgPlus phantom
+# @OUTPUT ImgPlus convolved
 
 from net.imglib2 import Point
 
 from net.imglib2.algorithm.region.hypersphere import HyperSphere
 
-# create an empty image 
+# create an empty image
 phantom=ops.create().img([xSize, ySize, zSize])
+
+# make phantom an ImgPlus
+phantom=ops.create().imgPlus(phantom);
 
 # use the randomAccess interface to place points in the image
 randomAccess= phantom.randomAccess()
@@ -23,15 +27,18 @@ location = Point(phantom.numDimensions())
 location.setPosition([3*xSize/4, 3*ySize/4, 3*zSize/4])
 
 hyperSphere = HyperSphere(phantom, location, 5)
-		
-for value in hyperSphere:
-	value.setReal(16)
 
-display.createDisplay("phantom", phantom)
+for value in hyperSphere:
+        value.setReal(16)
+
+phantom.setName("phantom")
 
 # create psf using the gaussian kernel op (alternatively PSF could be an input to the script)
 psf=ops.create().kernelGauss([5, 5, 5])
 
 # convolve psf with phantom
 convolved=ops.filter().convolve(phantom, psf)
-display.createDisplay("convolved", convolved)
+
+# make convolved an ImgPlus
+convolved=ops.create().imgPlus(convolved);
+convolved.setName("convolved")
