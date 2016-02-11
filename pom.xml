@@ -10,7 +10,7 @@
 	</parent>
 
 	<artifactId>imagej-scripting</artifactId>
-	<version>0.2.3-SNAPSHOT</version>
+	<version>0.2.4-SNAPSHOT</version>
 
 	<name>ImageJ Scripting</name>
 	<description>ImageJ applications and examples for SciJava script languages.</description>
