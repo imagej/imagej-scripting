@@ -1,5 +1,5 @@
 // @OpService ops
-// @Dataset inputData
+// @ImgPlus inputData
 // @OUTPUT ImgPlus(label="Filtered") filtered
 // @OUTPUT ImgPlus(label="Convolved") result
 
@@ -7,7 +7,7 @@
 // to it, and then performs convolution with a custom kernel.
 
 // Convert the input image
-img32 = ops.convert().int32(inputData.getImgPlus())
+img32 = ops.convert().int32(inputData)
 
 // Apply the gaussian filter
 filtered=ops.filter().gauss(img32, [4.0,4.0])
