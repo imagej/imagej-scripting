@@ -10,7 +10,7 @@
 	</parent>
 
 	<artifactId>imagej-scripting</artifactId>
-	<version>0.3.1-SNAPSHOT</version>
+	<version>0.4.0-SNAPSHOT</version>
 
 	<name>ImageJ Scripting</name>
 	<description>ImageJ applications and examples for SciJava script languages.</description>
@@ -139,6 +139,10 @@
 		<dependency>
 			<groupId>org.scijava</groupId>
 			<artifactId>scripting-renjin</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.scijava</groupId>
+			<artifactId>scripting-scala</artifactId>
 		</dependency>
 
 		<!-- Test scope dependencies -->
