@@ -110,15 +110,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.scijava</groupId>
-			<artifactId>scripting-jython</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.scijava</groupId>
-			<artifactId>scripting-java</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.scijava</groupId>
-			<artifactId>scripting-groovy</artifactId>
+			<artifactId>scripting-beanshell</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.scijava</groupId>
@@ -126,7 +118,11 @@
 		</dependency>
 		<dependency>
 			<groupId>org.scijava</groupId>
-			<artifactId>scripting-beanshell</artifactId>
+			<artifactId>scripting-groovy</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.scijava</groupId>
+			<artifactId>scripting-java</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.scijava</groupId>
@@ -135,6 +131,10 @@
 		<dependency>
 			<groupId>org.scijava</groupId>
 			<artifactId>scripting-jruby</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.scijava</groupId>
+			<artifactId>scripting-jython</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.scijava</groupId>
