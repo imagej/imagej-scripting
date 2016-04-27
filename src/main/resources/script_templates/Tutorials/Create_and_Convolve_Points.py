@@ -6,7 +6,7 @@
 # @OUTPUT ImgPlus convolved
 
 from net.imglib2 import Point
-
+from net.imglib2.type.numeric.real import FloatType
 from net.imglib2.algorithm.region.hypersphere import HyperSphere
 
 # create an empty image
@@ -34,7 +34,7 @@ for value in hyperSphere:
 phantom.setName("phantom")
 
 # create psf using the gaussian kernel op (alternatively PSF could be an input to the script)
-psf=ops.create().kernelGauss([5, 5, 5])
+psf=ops.create().kernelGauss([5, 5, 5], FloatType())
 
 # convolve psf with phantom
 convolved=ops.filter().convolve(phantom, psf)
