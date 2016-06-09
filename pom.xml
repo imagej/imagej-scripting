@@ -47,11 +47,6 @@
 	</developers>
 	<contributors>
 		<contributor>
-			<name>Brian Northan</name>
-			<url>http://imagej.net/User:Bnorthan</url>
-			<properties><id>bnorthan</id></properties>
-		</contributor>
-		<contributor>
 			<name>Ellen Arena</name>
 			<url>http://imagej.net/User:Etarena</url>
 			<properties><id>etarena</id></properties>
@@ -60,6 +55,11 @@
 			<name>Stefan Helfrich</name>
 			<url>http://imagej.net/User:Stelfrich</url>
 			<properties><id>stelfrich</id></properties>
+		</contributor>
+		<contributor>
+			<name>Brian Northan</name>
+			<url>http://imagej.net/User:Bnorthan</url>
+			<properties><id>bnorthan</id></properties>
 		</contributor>
 	</contributors>
 
