@@ -1,6 +1,5 @@
 # @OpService ops
 # @Dataset data
-# @UIService ui
 # @OUTPUT ImgPlus c0
 # @OUTPUT ImgPlus z12
 # @OUTPUT ImgPlus c0z12
