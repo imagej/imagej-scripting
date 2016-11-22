@@ -4,6 +4,7 @@
 // @DatasetService data
 
 // Author Chalkie/Brian Northan
+// Prerequisite install http://www.optinav.info/Diffraction-PSF-3D.htm
 
 import ij.IJ
 import net.imglib2.FinalDimensions
