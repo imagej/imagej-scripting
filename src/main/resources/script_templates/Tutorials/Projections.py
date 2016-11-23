@@ -32,10 +32,10 @@ sumOp = ops.op(Ops.Stats.Sum, sumProjection.firstElement(), data)
 # image: img to project
 # op: the op used to generate the projection (in this case "max")
 # dimensionToProject: the dimension to project
-ops.image().project(maxProjection, data, maxOp, pDim)
+ops.transform().project(maxProjection, data, maxOp, pDim)
 
 # project again this time use sum projection
-ops.image().project(sumProjection, data, sumOp, pDim)
+ops.transform().project(sumProjection, data, sumOp, pDim)
 
 # display the results
 ui.show("max projection", maxProjection)
