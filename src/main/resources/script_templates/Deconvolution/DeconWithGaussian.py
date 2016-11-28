@@ -10,7 +10,11 @@
 img_float=ops.convert().float32(img)
 
 # create and show the gaussian kernel
-psf=ops.create().kernelGauss([sxy, sxy, sz])
+if img_float.numDimensions()==3:
+	psf=ops.create().kernelGauss([sxy, sxy, sz])
+elif img_float.numDimensions()==2:
+	psf=ops.create().kernelGauss([sxy, sxy])
+		
 ui.show(psf)
 
 # deconvolve

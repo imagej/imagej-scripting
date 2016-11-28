@@ -3,7 +3,7 @@
 // @ConvertService convert
 // @DatasetService data
 
-// Author Chalkie/Brian Northan
+// Author Daniel James White/Brian Northan
 // Prerequisite install http://www.optinav.info/Diffraction-PSF-3D.htm
 
 import ij.IJ
@@ -64,6 +64,6 @@ deconvolved_rltv=ops.deconvolve().richardsonLucyTV(noisy, psf, 10, 0.01)
 ui.show("deconvolved rltv", deconvolved_rltv)
 plotProfile()
 
-deconvolved_rltv_accelerated=ops.deconvolve().richardsonLucyTV(noisy, psf, null, null, null, null, null, 10, true, true, 0.01)
+deconvolved_rltv_accelerated=ops.deconvolve().richardsonLucyTV(noisy, psf, null, null, null, null, null, 10, false, true, 0.01)
 ui.show("deconvolved rltv accelerated", deconvolved_rltv_accelerated)
 plotProfile()
