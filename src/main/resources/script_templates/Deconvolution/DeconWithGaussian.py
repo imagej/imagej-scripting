@@ -14,4 +14,4 @@ psf=ops.create().kernelGauss([sxy, sxy, sz])
 ui.show(psf)
 
 # deconvolve
-deconvolved=ops.deconvolve().richardsonLucyTV(img_float, psf, numIterations, 0.01);
+deconvolved=ops.deconvolve().richardsonLucyTV(img_float, psf, numIterations, 0.01)
