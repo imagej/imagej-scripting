@@ -1,11 +1,12 @@
 # @OpService ops
-# @UIService ui
-# @Dataset inputData
+# @ImgPlus inputData
 # @Double sigma
+# @OUTPUT ImgPlus logFiltered
+# @OUTPUT ImgPlus thresholded
 
-# Run this tutorial using the C0Z16 image generated in the 'Crop Confocal Series' tutorial.
+# Run this tutorial using the C0Z12 image generated in the 'Crop Confocal Series' tutorial.
 
-# To generate the C0Z16 image, do the following:
+# To generate the C0Z12 image, do the following:
 # Go to 'file>Open Samples>Confocal Series' and make sure confocal-series.tif is the active image and 
 # run the Crop Confocal Series tutorial.
 
@@ -14,17 +15,12 @@ from ij import IJ
 from java.lang import Integer
 
 # create a log kernel
-logKernel=ops.create().kernelLog(Integer(inputData.numDimensions()), sigma);
+logKernel=ops.create().kernelLog(inputData.numDimensions(), sigma);
 
-# convolve with log kernel
 logFiltered=ops.filter().convolve(inputData, logKernel)
-
-# display log filter result
-ui.show("log", logFiltered)
 
 # otsu threshold and display
 thresholded = ops.threshold().otsu(logFiltered)
-ui.show("thresholded", thresholded)
 
 # convert to imagej1 imageplus so we can run analyze particles
 impThresholded=ImageJFunctions.wrap(thresholded, "wrapped")
