@@ -3,18 +3,30 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>net.imagej</groupId>
-		<artifactId>pom-imagej</artifactId>
-		<version>15.0.0</version>
+		<groupId>org.scijava</groupId>
+		<artifactId>pom-scijava</artifactId>
+		<version>12.0.0</version>
 		<relativePath />
 	</parent>
 
+	<groupId>net.imagej</groupId>
 	<artifactId>imagej-scripting</artifactId>
 	<version>0.4.1-SNAPSHOT</version>
 
 	<name>ImageJ Scripting</name>
 	<description>ImageJ applications and examples for SciJava script languages.</description>
+	<url>http://imagej.net/Scripting</url>
 	<inceptionYear>2015</inceptionYear>
+	<organization>
+		<name>ImageJ</name>
+		<url>http://imagej.net/</url>
+	</organization>
+	<licenses>
+		<license>
+			<name>Simplified BSD License</name>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
 
 	<developers>
 		<developer>
@@ -55,6 +67,13 @@
 		</contributor>
 	</contributors>
 
+	<mailingLists>
+		<mailingList>
+			<name>ImageJ Forum</name>
+			<archive>http://forum.imagej.net/</archive>
+		</mailingList>
+	</mailingLists>
+
 	<scm>
 		<connection>scm:git:git://github.com/imagej/imagej-scripting</connection>
 		<developerConnection>scm:git:git@github.com:imagej/imagej-scripting</developerConnection>
@@ -70,16 +89,20 @@
 		<url>http://jenkins.imagej.net/job/ImageJ-Scripting/</url>
 	</ciManagement>
 
+	<properties>
+		<package-name>net.imagej.scripting</package-name>
+		<license.licenseName>bsd_2</license.licenseName>
+		<license.copyrightOwners>Board of Regents of the University of
+Wisconsin-Madison.</license.copyrightOwners>
+		<license.projectName>ImageJ software for multidimensional image processing and analysis.</license.projectName>
+	</properties>
+
 	<repositories>
 		<repository>
 			<id>imagej.public</id>
 			<url>http://maven.imagej.net/content/groups/public</url>
 		</repository>
 	</repositories>
-
-	<properties>
-		<scijava.jvm.version>1.8</scijava.jvm.version>
-	</properties>
 
 	<dependencies>
 		<!-- ImageJ dependencies -->
@@ -185,25 +208,5 @@
 				</plugin>
 			</plugins>
 		</pluginManagement>
-		<plugins>
-			<plugin>
-				<artifactId>maven-jar-plugin</artifactId>
-				<configuration>
-					<archive>
-						<manifest>
-							<packageName>net.imagej.scripting</packageName>
-						</manifest>
-					</archive>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>license-maven-plugin</artifactId>
-				<configuration>
-					<organizationName>Board of Regents of the University of
-Wisconsin-Madison.</organizationName>
-				</configuration>
-			</plugin>
-		</plugins>
 	</build>
 </project>
