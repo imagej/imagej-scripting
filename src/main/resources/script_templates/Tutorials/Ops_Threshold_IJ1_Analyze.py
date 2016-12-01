@@ -1,8 +1,8 @@
 # @OpService ops
-# @Dataset inputData
+# @ImgPlus inputData
 # @Double sigma
-# @OUTPUT Dataset logFiltered
-# @OUTPUT Dataset thresholded
+# @OUTPUT ImgPlus logFiltered
+# @OUTPUT ImgPlus thresholded
 
 # Run this tutorial using the C0Z12 image generated in the 'Crop Confocal Series' tutorial.
 
@@ -17,15 +17,10 @@ from java.lang import Integer
 # create a log kernel
 logKernel=ops.create().kernelLog(inputData.numDimensions(), sigma);
 
-# convolve with log kernel
 logFiltered=ops.filter().convolve(inputData, logKernel)
-
-# display log filter result
-logFiltered.setName("log")
 
 # otsu threshold and display
 thresholded = ops.threshold().otsu(logFiltered)
-thresholded.setName("thresholded")
 
 # convert to imagej1 imageplus so we can run analyze particles
 impThresholded=ImageJFunctions.wrap(thresholded, "wrapped")
