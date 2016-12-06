@@ -5,8 +5,6 @@
 # This script identify all the particles from a mask and create label regions over which you can iterate.
 # The second part of the script display all the detected regions into the IJ1 RoiManager.
 
-
-from net.imagej.axis import Axes
  
 from net.imglib2.algorithm.labeling.ConnectedComponents import StructuringElement
 from net.imglib2.roi.labeling import LabelRegions

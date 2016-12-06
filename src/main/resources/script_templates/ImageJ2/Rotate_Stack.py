@@ -50,7 +50,7 @@ def crop_along_one_axis(ij, data, intervals, axis_type):
     
  
 # Get the center of the images so we do the rotation according to it
-center = [int(round((data.max(d) / 2 + 1))) for d in range(0, data.numDimensions())]
+center = [int(round((data.max(d) / 2 + 1))) for d in range(2)]
  
 # Convert angles to radians
 angle_rad = angle * math.pi / 180
