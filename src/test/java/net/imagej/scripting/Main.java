@@ -28,7 +28,6 @@
  * POSSIBILITY OF SUCH DAMAGE.
  * #L%
  */
-
 package net.imagej.scripting;
 
 import org.scijava.script.ScriptREPL;
@@ -40,7 +39,7 @@ import org.scijava.script.ScriptREPL;
  */
 public class Main {
 
-	public static void main(String... args) throws Exception {
-		ScriptREPL.main(args);
-	}
+    public static void main(String... args) throws Exception {
+        ScriptREPL.main(args);
+    }
 }
