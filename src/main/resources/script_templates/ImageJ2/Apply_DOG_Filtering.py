@@ -1,7 +1,7 @@
 # @Dataset data
 # @Float(label="Sigma 1 (pixel)", required=true, value=4.2, stepSize=0.1) sigma1
 # @Float(label="Sigma 2 (pixel)", required=true, value=1.25, stepSize=0.1) sigma2
-# @OUTPUT Dataset clipped
+# @OUTPUT Dataset output
 
 # @ImageJ ij
 
@@ -32,4 +32,4 @@ clip_op = ij.op().op("convert.clip", data.getImgPlus().firstElement(), dog.first
 ij.op().convert().imageType(clipped, dog, clip_op)
 
 # Create output Dataset
-clipped = ij.dataset().create(clipped)
+output = ij.dataset().create(clipped)

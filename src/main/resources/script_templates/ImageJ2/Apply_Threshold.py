@@ -1,7 +1,7 @@
 # @String(label="Threshold Method", required=true, choices={'otsu', 'huang'}) method_threshold
 # @Float(label="Relative threshold", required=true, value=1, stepSize=0.1) relative_threshold
 # @Dataset data
-# @OUTPUT Dataset thresholded
+# @OUTPUT Dataset output
 # @ImageJ ij
 
 # Apply an automatic threshold from a given method. The threshold value 'threshold_value'
@@ -26,6 +26,6 @@ threshold_value = UnsignedByteType(threshold_value)
 thresholded = ij.op().run("threshold.apply", data, threshold_value)
 
 # Create output Dataset
-thresholded = ij.dataset().create(thresholded)
+output = ij.dataset().create(thresholded)
 
 

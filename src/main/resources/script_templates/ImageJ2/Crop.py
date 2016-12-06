@@ -46,8 +46,8 @@ def crop(ij, data, intervals):
 
 
 # Define the intervals to be cropped
-intervals = {'X' : [0, 80],
-             'Y' : [0, 50]}
+intervals = {'X' : [0, 5],
+             'Y' : [0, 5]}
 
 # Crop the Dataset
 output = crop(ij, data, intervals)

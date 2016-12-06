@@ -7,7 +7,6 @@
  
 from net.imglib2.util import Intervals
 from net.imagej.axis import Axes
-from net.imagej.ops import Ops
  
 # Convert input
 converted = ij.op().convert().float32(data)
