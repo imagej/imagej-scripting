@@ -1,7 +1,8 @@
 # @Float(label="Rotation angle (in degree)", required=true, value=90, stepSize=0.1) angle
 # @Dataset data
 # @OUTPUT Dataset output
-# @ImageJ ij
+# @OpService ops
+# @DatasetService ds
 
 # This script rotates all the frame of a stack along the TIME axis to a given angle.
 # I found this script over complicated for what it is supposed to do. I hope a simpler way to do this kind of 
@@ -28,7 +29,7 @@ def get_axis(axis_type):
     }.get(axis_type, Axes.Z)
      
  
-def crop_along_one_axis(ij, data, intervals, axis_type):
+def crop_along_one_axis(ops, data, intervals, axis_type):
     """Crop along a single axis using Views.
  
     Parameters
@@ -44,7 +45,7 @@ def crop_along_one_axis(ij, data, intervals, axis_type):
     interval = interval_start + interval_end
     interval = Intervals.createMinMax(*interval)
  
-    output = ij.op().run("transform.crop", data, interval, True)
+    output = ops.run("transform.crop", data, interval, True)
  
     return output
     
@@ -70,21 +71,21 @@ output = []
 for d in range(data.dimension(axis)):
  
     # Get the current frame
-    frame = crop_along_one_axis(ij, data, [d, d], "TIME")
+    frame = crop_along_one_axis(ops, data, [d, d], "TIME")
  
     # Get the interpolate view of the frame
-    extended = ij.op().run("transform.extendZeroView", frame)
-    interpolant = ij.op().run("transform.interpolateView", extended, interpolator)
+    extended = ops.run("transform.extendZeroView", frame)
+    interpolant = ops.run("transform.interpolateView", extended, interpolator)
  
     # Apply the transformation to it
     rotated = RealViews.affine(interpolant, affine)
      
     # Set the intervals
-    rotated = ij.op().transform().offset(rotated, frame)
+    rotated = ops.transform().offset(rotated, frame)
  
     output.append(rotated)
  
 output = Views.stack(output)
 
 # Create output Dataset
-output = ij.dataset().create(output)
+output = ds.create(output)

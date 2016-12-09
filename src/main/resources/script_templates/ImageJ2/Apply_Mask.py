@@ -1,4 +1,3 @@
-# @ImageJ ij
 # @Dataset data
 # @Dataset mask
 # @OUTPUT Dataset output

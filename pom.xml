@@ -186,7 +186,13 @@
         </dependency>
         <dependency>
             <groupId>net.imagej</groupId>
-            <artifactId>imagej</artifactId>
+            <artifactId>imagej-common</artifactId>
+            <scope>test</scope>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>net.imagej</groupId>
+            <artifactId>imagej-ops</artifactId>
             <scope>test</scope>
             <type>jar</type>
         </dependency>
