@@ -16,6 +16,7 @@ import org.scijava.plugin.Parameter;
 import org.junit.After;
 import org.junit.Before;
 import org.scijava.plugins.scripting.jython.JythonService;
+import org.scijava.ui.UIService;
 import org.scijava.widget.WidgetService;
 
 /**
@@ -40,7 +41,7 @@ public abstract class AbstractScriptTest implements ScriptTest {
         return new Context(ScriptService.class, JythonService.class, DatasetIOService.class,
                 ImageJService.class, CacheService.class, WidgetService.class, ImgUtilityService.class,
                 PlaneConverterService.class, InitializeService.class, XMLService.class,
-                SCIFIOService.class);
+                SCIFIOService.class, UIService.class);
     }
 
     /**
