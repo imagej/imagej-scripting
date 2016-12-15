@@ -1,6 +1,7 @@
 # @Dataset data
 # @OUTPUT Dataset output
-# @ImageJ ij
+# @DatasetService ds
+# @OpService ops
 
 from net.imagej.axis import Axes
 from net.imglib2.util import Intervals
@@ -19,7 +20,7 @@ def get_axis(axis_type):
     }.get(axis_type, Axes.Z)
 
  
-def crop(ij, data, intervals):
+def crop(ops, data, intervals):
     """Crop along a one or more axis.
  
     Parameters
@@ -40,17 +41,17 @@ def crop(ij, data, intervals):
  
     intervals = Intervals.createMinMax(*intervals_start + intervals_end)
  
-    output = ij.op().run("transform.crop", data, intervals, True)
+    output = ops.run("transform.crop", data, intervals, True)
     
     return output
 
 
 # Define the intervals to be cropped
-intervals = {'X' : [0, 80],
-             'Y' : [0, 50]}
+intervals = {'X': [0, 5],
+    'Y': [0, 5]}
 
 # Crop the Dataset
-output = crop(ij, data, intervals)
+output = crop(ops, data, intervals)
 
 # Create output Dataset
-output = ij.dataset().create(output)
+output = ds.create(output)

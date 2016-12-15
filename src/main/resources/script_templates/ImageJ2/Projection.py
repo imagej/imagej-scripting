@@ -2,14 +2,14 @@
 # @String(label="Dimension to Project", choices={"X", "Y", "Z", "TIME", "CHANNEL"}) projected_dimension
 # @String(label="Projection Type", choices={"Max","Mean","Median","Min", "StdDev", "Sum"}) projection_type
 # @OUTPUT Dataset output
-# @ImageJ ij
+# @OpService ops
+# @DatasetService ds
 
 # Do a projection of a stack. The projection is done along a specified axis.
 # The commin use case of this script is to do a maximum Z projection.
  
 from net.imagej.axis import Axes
 from net.imagej.ops import Ops
-
 
 # Select which dimension to project
 dim = data.dimensionIndex(getattr(Axes, projected_dimension))
@@ -24,13 +24,11 @@ if data.dimension(dim) < 2:
 new_dimensions = [data.dimension(d) for d in range(0, data.numDimensions()) if d != dim]
 
 # Create the output image
-projected = ij.op().create().img(new_dimensions)
+projected = ops.create().img(new_dimensions)
 
 # Create the op and run it
-proj_op = ij.op().op(getattr(Ops.Stats, projection_type), data)
-ij.op().transform().project(projected, data, proj_op, dim)
+proj_op = ops.op(getattr(Ops.Stats, projection_type), data)
+ops.transform().project(projected, data, proj_op, dim)
 
 # Create the output Dataset
-output = ij.dataset().create(projected)
-
-
+output = ds.create(projected)

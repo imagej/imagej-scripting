@@ -1,4 +1,3 @@
-# @ImageJ ij
 # @Dataset data
 # @Dataset mask
 # @OUTPUT Dataset output
@@ -15,7 +14,7 @@ from net.imglib2.util import Intervals
 # Check dimensions are the same for 'data' and 'mask'
 
 if not Intervals.equalDimensions(data, mask):
-	raise Exception("Dimensions from input dataset does not match.")
+    raise Exception("Dimensions from input dataset does not match.")
 
 # Create the cursors
 output = data.duplicate() 

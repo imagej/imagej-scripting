@@ -1,20 +1,19 @@
 # @Float(label="Rotation angle (in degree)", required=true, value=90, stepSize=0.1) angle
 # @Dataset data
 # @OUTPUT Dataset output
-# @ImageJ ij
+# @OpService ops
+# @DatasetService ds
 
 # This script rotates all the frame of a stack along the TIME axis to a given angle.
 # I found this script over complicated for what it is supposed to do. I hope a simpler way to do this kind of 
 # transformation will be avaiable one day. At that time the script would have to be updated.
 
 import math
- 
 from net.imagej.axis import Axes
-from net.imglib2.util import Intervals
- 
-from net.imglib2.realtransform import RealViews
-from net.imglib2.realtransform import AffineTransform2D
 from net.imglib2.interpolation.randomaccess import LanczosInterpolatorFactory
+from net.imglib2.realtransform import AffineTransform2D
+from net.imglib2.realtransform import RealViews
+from net.imglib2.util import Intervals
 from net.imglib2.view import Views
 
  
@@ -28,7 +27,7 @@ def get_axis(axis_type):
     }.get(axis_type, Axes.Z)
      
  
-def crop_along_one_axis(ij, data, intervals, axis_type):
+def crop_along_one_axis(ops, data, intervals, axis_type):
     """Crop along a single axis using Views.
  
     Parameters
@@ -44,13 +43,13 @@ def crop_along_one_axis(ij, data, intervals, axis_type):
     interval = interval_start + interval_end
     interval = Intervals.createMinMax(*interval)
  
-    output = ij.op().run("transform.crop", data, interval, True)
+    output = ops.run("transform.crop", data, interval, True)
  
     return output
     
  
 # Get the center of the images so we do the rotation according to it
-center = [int(round((data.max(d) / 2 + 1))) for d in range(0, data.numDimensions())]
+center = [int(round((data.max(d) / 2 + 1))) for d in range(2)]
  
 # Convert angles to radians
 angle_rad = angle * math.pi / 180
@@ -70,21 +69,21 @@ output = []
 for d in range(data.dimension(axis)):
  
     # Get the current frame
-    frame = crop_along_one_axis(ij, data, [d, d], "TIME")
+    frame = crop_along_one_axis(ops, data, [d, d], "TIME")
  
     # Get the interpolate view of the frame
-    extended = ij.op().run("transform.extendZeroView", frame)
-    interpolant = ij.op().run("transform.interpolateView", extended, interpolator)
+    extended = ops.run("transform.extendZeroView", frame)
+    interpolant = ops.run("transform.interpolateView", extended, interpolator)
  
     # Apply the transformation to it
     rotated = RealViews.affine(interpolant, affine)
      
     # Set the intervals
-    rotated = ij.op().transform().offset(rotated, frame)
+    rotated = ops.transform().offset(rotated, frame)
  
     output.append(rotated)
  
 output = Views.stack(output)
 
 # Create output Dataset
-output = ij.dataset().create(output)
+output = ds.create(output)
