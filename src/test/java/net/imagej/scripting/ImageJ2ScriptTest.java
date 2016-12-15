@@ -158,8 +158,8 @@ public class ImageJ2ScriptTest extends AbstractScriptTest {
         final Dataset output = (Dataset) m.getOutput("output");
         Assert.assertNotNull(output);
     }
-    
-        @Test
+
+    @Test
     public void testSubtractFirstFrameScript() throws InterruptedException, ExecutionException,
             IOException, URISyntaxException, FileNotFoundException, ScriptException {
 

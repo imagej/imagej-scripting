@@ -6,11 +6,10 @@
 # The second part of the script display all the detected regions into the IJ1 RoiManager.
 
  
-from net.imglib2.algorithm.labeling.ConnectedComponents import StructuringElement
-from net.imglib2.roi.labeling import LabelRegions
- 
 from ij.gui import PointRoi
 from ij.plugin.frame import RoiManager
+from net.imglib2.algorithm.labeling.ConnectedComponents import StructuringElement
+from net.imglib2.roi.labeling import LabelRegions
 
 
 def get_roi_manager(new=False):

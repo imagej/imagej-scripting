@@ -9,13 +9,11 @@
 # transformation will be avaiable one day. At that time the script would have to be updated.
 
 import math
- 
 from net.imagej.axis import Axes
-from net.imglib2.util import Intervals
- 
-from net.imglib2.realtransform import RealViews
-from net.imglib2.realtransform import AffineTransform2D
 from net.imglib2.interpolation.randomaccess import LanczosInterpolatorFactory
+from net.imglib2.realtransform import AffineTransform2D
+from net.imglib2.realtransform import RealViews
+from net.imglib2.util import Intervals
 from net.imglib2.view import Views
 
  

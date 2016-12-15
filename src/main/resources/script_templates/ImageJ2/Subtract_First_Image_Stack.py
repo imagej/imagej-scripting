@@ -6,8 +6,8 @@
 # Subtract the first frame of a stack to all the frames of the given stack along the TIME axis.
 # It removes the static elements from a stack. Usefull when you are studying moving objects.
  
-from net.imglib2.util import Intervals
 from net.imagej.axis import Axes
+from net.imglib2.util import Intervals
  
 # Convert input
 converted = ops.convert().float32(data)
@@ -33,7 +33,7 @@ first_frame = ops.transform().crop(converted, intervals)
 subtracted = ops.create().img(converted)
  
 # Create the op
-sub_op =  ops.op("math.subtract", first_frame, first_frame)
+sub_op = ops.op("math.subtract", first_frame, first_frame)
  
 # Setup the fixed axis
 fixed_axis = [d for d in range(0, data.numDimensions()) if d != t_dim]

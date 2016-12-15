@@ -47,8 +47,8 @@ def crop(ops, data, intervals):
 
 
 # Define the intervals to be cropped
-intervals = {'X' : [0, 5],
-             'Y' : [0, 5]}
+intervals = {'X': [0, 5],
+    'Y': [0, 5]}
 
 # Crop the Dataset
 output = crop(ops, data, intervals)
