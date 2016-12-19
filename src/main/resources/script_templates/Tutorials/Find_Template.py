@@ -1,7 +1,7 @@
 # @OpService ops
 # @UIService ui
-# @Dataset image
-# @Dataset template
+# @ImgPlus image
+# @ImgPlus template
 
 # Run this tutorial using the C0Z12 and roiC0Z12 images generated in the 'Crop Confocal Series' tutorial.
 
@@ -34,7 +34,7 @@ from net.imglib2.converter import ComplexRealFloatConverter
 
 # alternatively to pass an outofbounds factory we have to pass every parameter.  We want:
 # output='None', input=template, borderSize=10 by 10, fast='True', outOfBoundsFactor=OutOfBoundsMirrorExpWindowingFactory
-templateFFT=ops.filter().fft(None, template.getImgPlus(), [10, 10], True, OutOfBoundsMirrorExpWindowingFactory(0.25))
+templateFFT=ops.filter().fft(template, [10, 10], True, OutOfBoundsMirrorExpWindowingFactory(0.25))
 
 # display fft (by default in generalized log power spectrum)
 ImageJFunctions.show(templateFFT).setTitle("fft power spectrum")
