@@ -5,6 +5,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
@@ -170,6 +173,33 @@ public class ImageJ2ScriptTest extends AbstractScriptTest {
         parameters.put("data", data);
 
         File scriptFile = new File(getClass().getResource("/script_templates/ImageJ2/Subtract_First_Image_Stack.py").toURI());
+        final ScriptModule m = scriptService.run(scriptFile, true, parameters).get();
+
+        final Dataset output = (Dataset) m.getOutput("output");
+        Assert.assertNotNull(output);
+    }
+
+    @Test
+    public void testStackDirectoryImagesScript() throws InterruptedException, ExecutionException,
+            IOException, URISyntaxException, FileNotFoundException, ScriptException {
+
+        // Create a temp directory and store some 2D images inside
+        Path tempDir = Files.createTempDirectory("temp_images_sequence");
+        String testPath = "8bit-signed&pixelType=int8&axes=X,Y&lengths=10,10.fake";
+        String fname;
+        Dataset data;
+        for (int i = 0; i < 5; i++) {
+            data = datasetIOService.open(testPath);
+            fname = Paths.get(tempDir.toString(), "image_" + i + ".tif").toString();
+            datasetIOService.save(data, fname);
+        }
+
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("images_sequence_dir", tempDir.toString());
+        parameters.put("image_extension", ".tif");
+        parameters.put("axis_type", "TIME");
+
+        File scriptFile = new File(getClass().getResource("/script_templates/ImageJ2/Stack_Directory_Images.py").toURI());
         final ScriptModule m = scriptService.run(scriptFile, true, parameters).get();
 
         final Dataset output = (Dataset) m.getOutput("output");
