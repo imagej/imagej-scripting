@@ -28,7 +28,7 @@ thresholded=ops.create().img(data.getImgPlus(), BitType())
 
 # call threshold op slice-wise for the defined axes, in this case [xDim,yDim] means process the 
 # first two axes (x and y)
-ops.slice(thresholded, data.getImgPlus(), otsu, [xDim,yDim])
+ops.slicewise(thresholded, data.getImgPlus(), otsu, [xDim,yDim])
 
 # try again with [xDim, yDim, zDim] is the result different? Why?
 
