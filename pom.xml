@@ -30,16 +30,38 @@
 
 	<developers>
 		<developer>
+			<id>bnorthan</id>
+			<name>Brian Northan</name>
+			<url>http://imagej.net/User:Bnorthan</url>
+			<roles>
+				<role>lead</role>
+				<role>developer</role>
+				<role>debugger</role>
+				<role>support</role>
+				<role>reviewer</role>
+			</roles>
+		</developer>
+		<developer>
+			<id>hadim</id>
+			<name>Hadrien Mary</name>
+			<url>http://imagej.net/User:Hadim</url>
+			<roles>
+				<role>lead</role>
+				<role>developer</role>
+				<role>debugger</role>
+				<role>support</role>
+				<role>reviewer</role>
+			</roles>
+			<timezone>-5</timezone>
+		</developer>
+		<developer>
 			<id>ctrueden</id>
 			<name>Curtis Rueden</name>
 			<url>http://imagej.net/User:Rueden</url>
 			<roles>
 				<role>founder</role>
-				<role>lead</role>
-				<role>developer</role>
 				<role>debugger</role>
 				<role>reviewer</role>
-				<role>support</role>
 				<role>maintainer</role>
 			</roles>
 		</developer>
@@ -48,30 +70,27 @@
 		<contributor>
 			<name>Ellen Arena</name>
 			<url>http://imagej.net/User:Etarena</url>
-			<properties>
-				<id>etarena</id>
-			</properties>
+			<properties><id>etarena</id></properties>
+		</contributor>
+		<contributor>
+			<name>Jan Eglinger</name>
+			<url>http://imagej.net/User:Eglinger</url>
+			<properties><id>imagejan</id></properties>
+		</contributor>
+		<contributor>
+			<name>Michael Entrup</name>
+			<url>http://imagej.net/User:M-entrup</url>
+			<properties><id>m-entrup</id></properties>
 		</contributor>
 		<contributor>
 			<name>Stefan Helfrich</name>
 			<url>http://imagej.net/User:Stelfrich</url>
-			<properties>
-				<id>stelfrich</id>
-			</properties>
+			<properties><id>stelfrich</id></properties>
 		</contributor>
 		<contributor>
 			<name>Mark Hiner</name>
 			<url>http://imagej.net/User:Hinerm</url>
-			<properties>
-				<id>hinerm</id>
-			</properties>
-		</contributor>
-		<contributor>
-			<name>Brian Northan</name>
-			<url>http://imagej.net/User:Bnorthan</url>
-			<properties>
-				<id>bnorthan</id>
-			</properties>
+			<properties><id>hinerm</id></properties>
 		</contributor>
 	</contributors>
 
