@@ -1,6 +1,9 @@
 # @OpService ops
 # @UIService ui
 # @Dataset data
+# @OUTPUT ImgPlus maxProjection
+# @OUTPUT ImgPlus sumProjection
+
 
 # Run this tutorial using the C0 image generated in the 'Crop Confocal Series' tutorial.
 
@@ -36,7 +39,4 @@ ops.transform().project(maxProjection, data, maxOp, pDim)
 
 # project again this time use sum projection
 ops.transform().project(sumProjection, data, sumOp, pDim)
-
-# display the results
-ui.show("max projection", maxProjection)
-ui.show("sum projection", sumProjection)
+

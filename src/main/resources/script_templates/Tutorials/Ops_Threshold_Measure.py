@@ -11,10 +11,6 @@
 # Go to 'file>Open Samples>Confocal Series' and make sure confocal-series.tif is the active image and 
 # run the Crop Confocal Series tutorial.
 
-from net.imglib2.img.display.imagej import ImageJFunctions
-from ij import IJ
-from java.lang import Integer
-
 from net.imglib2.algorithm.labeling.ConnectedComponents import StructuringElement
 from net.imglib2.roi import Regions;
 from net.imglib2.roi.labeling import LabelRegions;
