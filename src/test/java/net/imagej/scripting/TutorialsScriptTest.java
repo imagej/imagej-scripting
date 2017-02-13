@@ -82,7 +82,7 @@ public class TutorialsScriptTest extends AbstractScriptTest {
         parameters.put("zSize", 24);
 
         File scriptFile = new File(
-                getClass().getResource("/script_templates/Tutorials/Create_And_Convolve_Points.py").toURI());
+                getClass().getResource("/script_templates/Tutorials/Create_and_Convolve_Points.py").toURI());
         final ScriptModule m = scriptService.run(scriptFile, true, parameters).get();
 
         final ImgPlus<T> output1 = (ImgPlus<T>) m.getOutput("phantom");
