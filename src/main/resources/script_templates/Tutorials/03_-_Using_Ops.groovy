@@ -18,7 +18,7 @@ log.info( ops.help("math.add") )
 log.info("What is 2+5? "+ops.math().add(2, 5))
 
 // create a new blank image
-dims = new FinalDimensions((Long[])[150, 100])
+long[] dims = [150, 100]
 blank = ops.create().img(dims)
 
 // fill in the image with a sinusoid using a formula
@@ -32,7 +32,7 @@ ops.math().add(sinusoid, 13.0)
 gradient = ops.image().equation(ops.create().img(dims), "p[0]+p[1]")
 
 // add the two images
-composite = ops.math().add(sinusoid, gradient)
+composite = ops.run("math.add", sinusoid, gradient)
 
 // dump the image to the console
 ascii = ops.image().ascii(composite)
@@ -43,8 +43,10 @@ ui.show("composite", composite)
 
 // execute an op on every pixel of an image
 addOp = ops.op("math.add", DoubleType.class, new DoubleType(10000.0))
-ops.run("map", composite, composite, addOp)
-ui.show("composite plus", composite)
+compositePlus = ops.create().img(composite)
+ops.run("map", compositePlus, composite, addOp)
+ui.show("composite plus", compositePlus)
 
-// Note that the two composite images look the same..
-// but mouse over each image to inspect their pixel values!
+// 1. Note that the two composite images look the same...
+//    but mouse over each image to inspect their pixel values!
+// 2. Use Window > Show Console to see the output from log.info.
