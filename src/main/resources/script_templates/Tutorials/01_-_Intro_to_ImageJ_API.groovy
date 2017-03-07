@@ -16,7 +16,12 @@ println ("There are " + pluginCount + " plugins available.")
 log.warn("Death Star approaching!")
 
 // The status service is used to report the current status of operations.
-status.showStatus("It's nine o'clock and all is well.")
+max = 200
+for (i = 0; i < max; i++) {
+	status.showStatus(i, max, "Performing an expensive operation " + i + "/" + max)
+	Thread.sleep(10)
+}
+status.clearStatus()
 
 // The menu service organizes a menu hierarchy for ImageJ commands.
 menuItemCount = menu.getMenu().size()
