@@ -4,7 +4,12 @@
 # @DatasetService datasetService
 # @OUTPUT Dataset final_dataset
 
-import math
+# This script translates individual slices in a stack according to single
+# point ROIs (defined in the IJ1 ROIManager). If slices exist in between specified ROIs,
+# a linear translation from one ROI to the next is applied.
+# 1. Add point ROIs to the RoiManager; either one per slice or only in slices of
+# interest. (Be carefull to set the correct Z/T position when adding the ROI.)
+# 2. Run the script.
 
 from net.imglib2.util import Intervals
 from net.imagej.axis import Axes
