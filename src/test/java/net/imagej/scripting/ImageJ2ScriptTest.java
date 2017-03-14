@@ -212,4 +212,27 @@ public class ImageJ2ScriptTest extends AbstractScriptTest {
         Assert.assertNotNull(output);
     }
 
+ // I don't know how to test this script, since I need the IJ1 RoiManager object.
+//    @Test
+//    public void testManualRegistrationScript() throws InterruptedException, ExecutionException, IOException,
+//            URISyntaxException, FileNotFoundException, ScriptException {
+//
+//        Map<String, Object> parameters = new HashMap<>();
+//
+//        String testPath = "8bit-signed&pixelType=int8&axes=X,Y,Time&lengths=10,10,10.fake";
+//        Dataset data = datasetIOService.open(testPath);
+//        parameters.put("ds", data);
+//
+//        RoiManager rm = RoiManager.getInstance();
+//        rm.addRoi(new PointRoi(2, 2));
+//        rm.addRoi(new PointRoi(5, 3));
+//        rm.addRoi(new PointRoi(3.5, 4));
+//
+//        File scriptFile = new File(getClass().getResource("/script_templates/ImageJ2/Manual_Registration.py").toURI());
+//        final ScriptModule m = scriptService.run(scriptFile, true, parameters).get();
+//
+//        final Dataset output = (Dataset) m.getOutput("output");
+//        Assert.assertNotNull(output);
+//    }
+
 }
