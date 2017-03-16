@@ -1,5 +1,8 @@
 package net.imagej.scripting;
 
+import ij.gui.PointRoi;
+import ij.gui.Roi;
+import ij.plugin.frame.RoiManager;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -213,26 +216,32 @@ public class ImageJ2ScriptTest extends AbstractScriptTest {
     }
 
  // I don't know how to test this script, since I need the IJ1 RoiManager object.
-//    @Test
-//    public void testManualRegistrationScript() throws InterruptedException, ExecutionException, IOException,
-//            URISyntaxException, FileNotFoundException, ScriptException {
-//
-//        Map<String, Object> parameters = new HashMap<>();
-//
-//        String testPath = "8bit-signed&pixelType=int8&axes=X,Y,Time&lengths=10,10,10.fake";
-//        Dataset data = datasetIOService.open(testPath);
-//        parameters.put("ds", data);
-//
-//        RoiManager rm = RoiManager.getInstance();
-//        rm.addRoi(new PointRoi(2, 2));
-//        rm.addRoi(new PointRoi(5, 3));
-//        rm.addRoi(new PointRoi(3.5, 4));
-//
-//        File scriptFile = new File(getClass().getResource("/script_templates/ImageJ2/Manual_Registration.py").toURI());
-//        final ScriptModule m = scriptService.run(scriptFile, true, parameters).get();
-//
-//        final Dataset output = (Dataset) m.getOutput("output");
-//        Assert.assertNotNull(output);
-//    }
+    @Test
+    public void testManualRegistrationScript() throws InterruptedException, ExecutionException, IOException,
+            URISyntaxException, FileNotFoundException, ScriptException {
+
+        Map<String, Object> parameters = new HashMap<>();
+
+        String testPath = "8bit-signed&pixelType=int8&axes=X,Y,TIME&lengths=10,10,10.fake";
+        Dataset data = datasetIOService.open(testPath);
+        parameters.put("ds", data);
+
+        RoiManager rm = RoiManager.getRoiManager();
+        Roi point1 = new PointRoi(2, 2);
+        point1.setPosition(1);
+        rm.addRoi(point1);
+        Roi point2 = new PointRoi(5, 9);
+        point2.setPosition(3);
+        rm.addRoi(point2);
+        Roi point3 = new PointRoi(7, 1);
+        point3.setPosition(7);
+        rm.addRoi(point3);
+
+        File scriptFile = new File(getClass().getResource("/script_templates/ImageJ2/Manual_Registration.py").toURI());
+        final ScriptModule m = scriptService.run(scriptFile, true, parameters).get();
+
+        final Dataset output = (Dataset) m.getOutput("output");
+        Assert.assertNotNull(output);
+    }
 
 }

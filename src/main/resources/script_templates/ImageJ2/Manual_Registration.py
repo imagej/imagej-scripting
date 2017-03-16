@@ -1,9 +1,8 @@
-# @ImageJ ij
 # @Dataset ds
+# @OUTPUT Dataset output
 # @OpService ops
 # @LogService log
 # @DatasetService datasetService
-# @OUTPUT Dataset final_dataset
 
 # This script translates individual slices in a stack according to single
 # point ROIs (defined in the IJ1 ROIManager). If slices exist in between specified ROIs,
@@ -74,4 +73,4 @@ for j, (start_roi, end_roi) in enumerate(zip(rois[:-1], rois[1:])):
 		images.append(translated_frame)
 
 images = ops.run("transform.stackView", [images])
-final_dataset = datasetService.create(images)
+output = datasetService.create(images)
