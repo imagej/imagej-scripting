@@ -209,5 +209,11 @@
 			<scope>test</scope>
 			<type>jar</type>
 		</dependency>
+                <dependency>
+			<groupId>net.imagej</groupId>
+			<artifactId>ij</artifactId>
+			<scope>test</scope>
+			<type>jar</type>
+		</dependency>
 	</dependencies>
 </project>
