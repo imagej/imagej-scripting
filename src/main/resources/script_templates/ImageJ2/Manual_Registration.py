@@ -1,6 +1,7 @@
 # @ImageJ ij
 # @Dataset ds
 # @OpService ops
+# @LogService log
 # @DatasetService datasetService
 # @OUTPUT Dataset final_dataset
 
@@ -12,7 +13,6 @@
 # 2. Run the script.
 
 from net.imglib2.util import Intervals
-from net.imagej.axis import Axes
 from net.imglib2.view import Views
 
 from ij.plugin.frame import RoiManager
@@ -27,23 +27,19 @@ total_x_shift = 0
 total_y_shift = 0
 
 # Iterate over regions of interest
-for j, r in enumerate(range(len(rois)-1)):
-
-	# Get two ROIs
-	start = rois[r]
-	end = rois[r+1]
+for j, (start_roi, end_roi) in enumerate(zip(rois[:-1], rois[1:])):
 
 	# Get Z or T positions defined by the position of the ROIs
-	z_start = start.getPosition()
-	z_end = end.getPosition()
+	z_start = start_roi.getPosition()
+	z_end = end_roi.getPosition()
 
 	# Get X positions
-	x_start = start.getContainedPoints()[0].x
-	x_end = end.getContainedPoints()[0].x
+	x_start = start_roi.getContainedPoints()[0].x
+	x_end = end_roi.getContainedPoints()[0].x
 
 	# Get Y positions
-	y_start = start.getContainedPoints()[0].y
-	y_end = end.getContainedPoints()[0].y
+	y_start = start_roi.getContainedPoints()[0].y
+	y_end = end_roi.getContainedPoints()[0].y
 
 	# Calculate the linear translation for each frame in the Z/T axis
 	x_shift = float(x_end - x_start) / (z_end - z_start)
@@ -52,7 +48,7 @@ for j, r in enumerate(range(len(rois)-1)):
 	# Iterate over each frame in Z/T
 	for i, z in enumerate(range(z_start, z_end)):
 
-		ij.log().info("Processing frame %i/%i for roi #%i" % (i + 1, z_end - z_start, j))
+		log.info("Processing frame %i/%i for ROIs #%i and #%i (%i total detected ROIs)" % (z_start + i, z_end, j, j + 1, len(rois)))
 
 		# Compute the translation
 		dx = int(x_shift + total_x_shift) * -1
