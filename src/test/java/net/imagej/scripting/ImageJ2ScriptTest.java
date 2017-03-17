@@ -1,8 +1,5 @@
 package net.imagej.scripting;
 
-import ij.gui.PointRoi;
-import ij.gui.Roi;
-import ij.plugin.frame.RoiManager;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
