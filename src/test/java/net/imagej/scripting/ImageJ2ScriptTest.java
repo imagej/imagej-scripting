@@ -242,6 +242,8 @@ public class ImageJ2ScriptTest extends AbstractScriptTest {
 
         final Dataset output = (Dataset) m.getOutput("output");
         Assert.assertNotNull(output);
+        
+        rm.close();
     }
 
 }
