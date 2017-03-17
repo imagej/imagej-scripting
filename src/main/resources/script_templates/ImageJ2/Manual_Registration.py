@@ -64,10 +64,11 @@ for j, (start_roi, end_roi) in enumerate(zip(rois[:-1], rois[1:])):
 		padded_frame = ops.run("transform.extendZeroView", single_frame)
 
 		# Do the translation
-		translated_frame = ops.transform().translate(padded_frame, [dx, dy, 0])
+		translated_frame = ops.transform().translate(padded_frame, [dx, dy])
 
 		# Cleanup
-		translated_frame = Views.interval(translated_frame, intervals)
+		interval2d = Intervals.createMinMax(0, 0, ds.getWidth() - 1, ds.getHeight() - 1)
+		translated_frame = Views.interval(translated_frame, interval2d)
 		translated_frame = ops.run("transform.dropSingletonDimensionsView", translated_frame)
 	
 		images.append(translated_frame)
