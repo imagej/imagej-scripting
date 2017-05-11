@@ -28,7 +28,7 @@ import org.scijava.script.ScriptModule;
 public class TutorialsScriptTest extends AbstractScriptTest {
 
 	@Parameter
-	protected DatasetIOService datasetIOService;
+	private DatasetIOService datasetIOService;
 
 	@Test
 	public <T extends RealType<T>> void testCropConfocalSeries()

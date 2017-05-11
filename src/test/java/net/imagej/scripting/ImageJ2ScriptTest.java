@@ -29,7 +29,7 @@ import org.scijava.script.ScriptModule;
 public class ImageJ2ScriptTest extends AbstractScriptTest {
 
 	@Parameter
-	protected DatasetIOService datasetIOService;
+	private DatasetIOService datasetIOService;
 
 	@Test
 	public void testDOGScript() throws InterruptedException, ExecutionException,
