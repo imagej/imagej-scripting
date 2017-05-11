@@ -1,6 +1,8 @@
 
 package net.imagej.scripting;
 
+import static org.junit.Assert.assertEquals;
+
 import io.scif.services.DatasetIOService;
 
 import java.io.File;
@@ -17,7 +19,6 @@ import net.imagej.Dataset;
 import net.imagej.ImgPlus;
 import net.imglib2.type.numeric.RealType;
 
-import org.junit.Assert;
 import org.junit.Test;
 import org.scijava.plugin.Parameter;
 import org.scijava.script.ScriptModule;
@@ -54,7 +55,11 @@ public class DeconvolutionScriptTest extends AbstractScriptTest {
 			.get();
 
 		final ImgPlus<T> output1 = (ImgPlus<T>) m.getOutput("deconvolved");
-		Assert.assertNotNull(output1);
-
+		assertEquals(3, output1.numDimensions());
+		final double[] expected = { 378.56768798828125, 97.66587829589844,
+			22.849470138549805, 1.997551679611206, 51.35069274902344,
+			73.30968475341797, -193.34324645996094, -616.32958984375,
+			-628.3247680664062, -180.4445037841797 };
+		assertSamplesEqual(output1, 1000, expected);
 	}
 }

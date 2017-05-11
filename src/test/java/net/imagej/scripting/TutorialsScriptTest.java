@@ -52,7 +52,10 @@ public class TutorialsScriptTest extends AbstractScriptTest {
 
 		@SuppressWarnings("unchecked")
 		final ImgPlus<T> output = (ImgPlus<T>) m.getOutput("c0");
-		Assert.assertNotNull(output);
+		final double[] expected = { 0.0, -128.0, -128.0, -128.0, -128.0, -128.0,
+			-128.0, -128.0, -128.0, -128.0, -128.0, -128.0, -128.0, -128.0, -128.0,
+			-128.0, -128.0, -128.0, -128.0, -128.0, -128.0, -88.0 };
+		assertSamplesEqual(output, 19, expected);
 	}
 
 	// @Test
@@ -99,10 +102,19 @@ public class TutorialsScriptTest extends AbstractScriptTest {
 			.get();
 
 		final ImgPlus<T> output1 = (ImgPlus<T>) m.getOutput("phantom");
-		Assert.assertNotNull(output1);
+		final double[] expected1 = new double[] { 255.0, 0.0 };
+		assertSamplesEqual(output1, 102432, expected1);
 
 		final ImgPlus<T> output2 = (ImgPlus<T>) m.getOutput("convolved");
-		Assert.assertNotNull(output2);
+		final double[] expected2 = { -4.118816399056868E-9, -2.6888646864620114E-9,
+			-7.762487319595834E-10, 1.5811233433637994E-9, 4.294427036199977E-9,
+			7.265440249426547E-9, 1.0367559255541892E-8, 1.346087241671512E-8,
+			1.6421539683619812E-8, 1.9126369821265143E-8, 2.14812700960465E-8,
+			2.3422717987386932E-8, 2.490532402532608E-8, 2.5911424117452952E-8,
+			2.6449438195186303E-8, 2.6547994025349908E-8, 2.6253854201740978E-8,
+			2.561551504243198E-8, 2.470525828357495E-8, 2.357626804894153E-8,
+			2.228407325333137E-8 };
+		assertSamplesEqual(output2, 0, expected2);
 
 	}
 
@@ -128,10 +140,19 @@ public class TutorialsScriptTest extends AbstractScriptTest {
 			.get();
 
 		final ImgPlus<T> output1 = (ImgPlus<T>) m.getOutput("logFiltered");
-		Assert.assertNotNull(output1);
+		final double[] expected1 = { 1.5894572769070692E-8, -3.1789145538141383E-8,
+			0.0, 3.1789145538141383E-8, 5.563100202721216E-8, 3.973643103449831E-8,
+			1.5894572769070692E-8, -3.1789145538141383E-8, 0.0, 3.1789145538141383E-8,
+			-5.563100202721216E-8, -1.2715658215256553E-7, -1.1126200405442432E-7,
+			-4.7683716530855236E-8, 0.05621512606739998, 0.1999766081571579,
+			0.44583258032798767, 0.6688981652259827, 0.5973716974258423,
+			0.06918635219335556, -0.6852334141731262 };
+		assertSamplesEqual(output1, 0, expected1);
 
 		final ImgPlus<T> output2 = (ImgPlus<T>) m.getOutput("thresholded");
-		Assert.assertNotNull(output2);
+		final double[] expected2 = { 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,
+			1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0 };
+		assertSamplesEqual(output2, 0, expected2);
 
 	}
 
@@ -156,10 +177,15 @@ public class TutorialsScriptTest extends AbstractScriptTest {
 			.get();
 
 		final ImgPlus<T> output1 = (ImgPlus<T>) m.getOutput("maxProjection");
-		Assert.assertNotNull(output1);
+		final double[] expected1 = { 99.0, 99.0, 99.0, -29.0, -29.0, -29.0, -29.0,
+			-29.0, -29.0, -29.0, -29.0, -29.0, -29.0, -98.0 };
+		assertSamplesEqual(output1, 17, expected1);
 
 		final ImgPlus<T> output2 = (ImgPlus<T>) m.getOutput("sumProjection");
-		Assert.assertNotNull(output2);
+		final double[] expected2 = { 4950.0, 4950.0, 4950.0, -7850.0, -7850.0,
+			-7850.0, -7850.0, -7850.0, -7850.0, -7850.0, -7850.0, -7850.0, -7850.0,
+			-9800.0 };
+		assertSamplesEqual(output2, 17, expected2);
 
 	}
 
@@ -184,10 +210,15 @@ public class TutorialsScriptTest extends AbstractScriptTest {
 			.get();
 
 		final ImgPlus<T> output1 = (ImgPlus<T>) m.getOutput("filtered");
-		Assert.assertNotNull(output1);
+		final double[] expected1 = { -2.0, -2.0, -2.0, -2.0, -2.0, -2.0, -2.0, -2.0,
+			-2.0, -2.0, -3.0, -3.0, -5.0, -7.0, -11.0, -15.0, -22.0, -29.0, -39.0,
+			-48.0, -59.0 };
+		assertSamplesEqual(output1, 0, expected1);
 
 		final ImgPlus<T> output2 = (ImgPlus<T>) m.getOutput("result");
-		Assert.assertNotNull(output2);
+		final double[] expected2 = { 4.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0,
+			0.0, 4.0, 0.0, 5.0, 4.0, 11.0, 11.0, 22.0, 25.0, 40.0, 45.0, 61.0 };
+		assertSamplesEqual(output2, 0, expected2);
 
 	}
 

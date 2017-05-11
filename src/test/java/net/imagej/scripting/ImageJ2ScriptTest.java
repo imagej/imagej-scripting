@@ -51,7 +51,7 @@ public class ImageJ2ScriptTest extends AbstractScriptTest {
 			.get();
 
 		final Dataset output = (Dataset) m.getOutput("output");
-		Assert.assertNotNull(output);
+		assertConstant(output, 0);
 	}
 
 	@Test
@@ -75,7 +75,7 @@ public class ImageJ2ScriptTest extends AbstractScriptTest {
 			.get();
 
 		final Dataset output = (Dataset) m.getOutput("output");
-		Assert.assertNotNull(output);
+		assertConstant(output, 0);
 	}
 
 	@Test
@@ -100,7 +100,7 @@ public class ImageJ2ScriptTest extends AbstractScriptTest {
 			.get();
 
 		final Dataset output = (Dataset) m.getOutput("output");
-		Assert.assertNotNull(output);
+		assertConstant(output, 0);
 	}
 
 	@Test
@@ -124,7 +124,7 @@ public class ImageJ2ScriptTest extends AbstractScriptTest {
 			.get();
 
 		final Dataset output = (Dataset) m.getOutput("output");
-		Assert.assertNotNull(output);
+		assertConstant(output, 0);
 	}
 
 	@Test
@@ -145,7 +145,7 @@ public class ImageJ2ScriptTest extends AbstractScriptTest {
 			.get();
 
 		final Dataset output = (Dataset) m.getOutput("output");
-		Assert.assertNotNull(output);
+		assertConstant(output, 0);
 	}
 
 	@Test
@@ -169,7 +169,7 @@ public class ImageJ2ScriptTest extends AbstractScriptTest {
 			.get();
 
 		final Dataset output = (Dataset) m.getOutput("output");
-		Assert.assertNotNull(output);
+		assertConstant(output, 0);
 	}
 
 	@Test
@@ -191,7 +191,7 @@ public class ImageJ2ScriptTest extends AbstractScriptTest {
 			.get();
 
 		final Dataset output = (Dataset) m.getOutput("output");
-		Assert.assertNotNull(output);
+		assertConstant(output, 0);
 	}
 
 	@Test
@@ -223,6 +223,6 @@ public class ImageJ2ScriptTest extends AbstractScriptTest {
 			.get();
 
 		final Dataset output = (Dataset) m.getOutput("output");
-		Assert.assertNotNull(output);
+		assertConstant(output, 0);
 	}
 }
