@@ -1,6 +1,9 @@
 
 package net.imagej.scripting;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import io.scif.SCIFIOService;
 import io.scif.img.ImgUtilityService;
 import io.scif.img.converters.PlaneConverterService;
@@ -8,8 +11,11 @@ import io.scif.services.DatasetIOService;
 import io.scif.services.InitializeService;
 import io.scif.xml.XMLService;
 
+import net.imagej.Dataset;
 import net.imagej.ImageJService;
 import net.imagej.ops.OpService;
+import net.imglib2.IterableInterval;
+import net.imglib2.type.numeric.RealType;
 
 import org.junit.After;
 import org.junit.Before;
@@ -65,6 +71,47 @@ public abstract class AbstractScriptTest implements ScriptTest {
 			context.dispose();
 			context = null;
 			scriptService = null;
+		}
+	}
+
+	/** Asserts that a particular chunk of samples have expected values. */
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public void assertSamplesEqual(
+		final Dataset image, final int offset,
+		final double[] expected)
+	{
+		final Class<?> imageType = image.firstElement().getClass();
+		assertTrue(RealType.class.isAssignableFrom(imageType));
+		assertSamplesEqual((IterableInterval) image, offset, expected);
+	}
+
+	/** Asserts that a particular chunk of samples have expected values. */
+	public <T extends RealType<T>> void assertSamplesEqual(
+		final IterableInterval<T> image, final int offset,
+		final double[] expected)
+	{
+		int i = -offset;
+		for (final T sample : image) {
+			if (i >= expected.length) break;
+			if (i >= 0) assertEquals(expected[i], sample.getRealDouble(), 0);
+			i++;
+		}
+	}
+
+	/** Asserts that all image samples are the same particular value. */
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public void assertConstant(final Dataset image, final double value) {
+		final Class<?> imageType = image.firstElement().getClass();
+		assertTrue(RealType.class.isAssignableFrom(imageType));
+		assertConstant((IterableInterval) image, value);
+	}
+
+	/** Asserts that all image samples are the same particular value. */
+	public <T extends RealType<T>> void assertConstant(
+		final IterableInterval<T> image, final double value)
+	{
+		for (final T sample : image) {
+			assertEquals(value, sample.getRealDouble(), 0);
 		}
 	}
 }
