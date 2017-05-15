@@ -22,7 +22,6 @@ import org.junit.Before;
 import org.scijava.Context;
 import org.scijava.cache.CacheService;
 import org.scijava.plugin.Parameter;
-import org.scijava.plugins.scripting.jython.JythonService;
 import org.scijava.script.ScriptService;
 import org.scijava.ui.UIService;
 import org.scijava.widget.WidgetService;
@@ -45,9 +44,9 @@ public abstract class AbstractScriptTest implements ScriptTest {
 	 */
 	@Override
 	public Context createContext() {
-		return new Context(ScriptService.class, JythonService.class,
-			DatasetIOService.class, ImageJService.class, CacheService.class,
-			WidgetService.class, ImgUtilityService.class, PlaneConverterService.class,
+		return new Context(ScriptService.class, DatasetIOService.class,
+			ImageJService.class, CacheService.class, WidgetService.class,
+			ImgUtilityService.class, PlaneConverterService.class,
 			InitializeService.class, XMLService.class, SCIFIOService.class,
 			UIService.class);
 	}
