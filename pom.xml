@@ -212,13 +212,11 @@
 			<groupId>io.scif</groupId>
 			<artifactId>scifio</artifactId>
 			<scope>test</scope>
-			<type>jar</type>
 		</dependency>
 		<dependency>
 			<groupId>net.imagej</groupId>
 			<artifactId>imagej-ops</artifactId>
 			<scope>test</scope>
-			<type>jar</type>
 		</dependency>
 	</dependencies>
 </project>
