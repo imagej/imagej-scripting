@@ -1,224 +1,224 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+	<modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>org.scijava</groupId>
-        <artifactId>pom-scijava</artifactId>
-        <version>14.0.0</version>
-        <relativePath />
-    </parent>
+	<parent>
+		<groupId>org.scijava</groupId>
+		<artifactId>pom-scijava</artifactId>
+		<version>14.0.0</version>
+		<relativePath />
+	</parent>
 
-    <groupId>net.imagej</groupId>
-    <artifactId>imagej-scripting</artifactId>
-    <version>0.5.3-SNAPSHOT</version>
+	<groupId>net.imagej</groupId>
+	<artifactId>imagej-scripting</artifactId>
+	<version>0.5.3-SNAPSHOT</version>
 
-    <name>ImageJ Scripting</name>
-    <description>ImageJ applications and examples for SciJava script languages.</description>
-    <url>http://imagej.net/Scripting</url>
-    <inceptionYear>2015</inceptionYear>
-    <organization>
-        <name>ImageJ</name>
-        <url>http://imagej.net/</url>
-    </organization>
-    <licenses>
-        <license>
-            <name>Simplified BSD License</name>
-            <distribution>repo</distribution>
-        </license>
-    </licenses>
+	<name>ImageJ Scripting</name>
+	<description>ImageJ applications and examples for SciJava script languages.</description>
+	<url>http://imagej.net/Scripting</url>
+	<inceptionYear>2015</inceptionYear>
+	<organization>
+		<name>ImageJ</name>
+		<url>http://imagej.net/</url>
+	</organization>
+	<licenses>
+		<license>
+			<name>Simplified BSD License</name>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
 
-    <developers>
-        <developer>
-            <id>bnorthan</id>
-            <name>Brian Northan</name>
-            <url>http://imagej.net/User:Bnorthan</url>
-            <roles>
-                <role>lead</role>
-                <role>developer</role>
-                <role>debugger</role>
-                <role>support</role>
-                <role>reviewer</role>
-            </roles>
-        </developer>
-        <developer>
-            <id>hadim</id>
-            <name>Hadrien Mary</name>
-            <url>http://imagej.net/User:Hadim</url>
-            <roles>
-                <role>lead</role>
-                <role>developer</role>
-                <role>debugger</role>
-                <role>support</role>
-                <role>reviewer</role>
-            </roles>
-            <timezone>-5</timezone>
-        </developer>
-        <developer>
-            <id>ctrueden</id>
-            <name>Curtis Rueden</name>
-            <url>http://imagej.net/User:Rueden</url>
-            <roles>
-                <role>founder</role>
-                <role>debugger</role>
-                <role>reviewer</role>
-                <role>maintainer</role>
-            </roles>
-        </developer>
-    </developers>
-    <contributors>
-        <contributor>
-            <name>Ellen Arena</name>
-            <url>http://imagej.net/User:Etarena</url>
-            <properties>
-                <id>etarena</id>
-            </properties>
-        </contributor>
-        <contributor>
-            <name>Jan Eglinger</name>
-            <url>http://imagej.net/User:Eglinger</url>
-            <properties>
-                <id>imagejan</id>
-            </properties>
-        </contributor>
-        <contributor>
-            <name>Michael Entrup</name>
-            <url>http://imagej.net/User:M-entrup</url>
-            <properties>
-                <id>m-entrup</id>
-            </properties>
-        </contributor>
-        <contributor>
-            <name>Stefan Helfrich</name>
-            <url>http://imagej.net/User:Stelfrich</url>
-            <properties>
-                <id>stelfrich</id>
-            </properties>
-        </contributor>
-        <contributor>
-            <name>Mark Hiner</name>
-            <url>http://imagej.net/User:Hinerm</url>
-            <properties>
-                <id>hinerm</id>
-            </properties>
-        </contributor>
-    </contributors>
+	<developers>
+		<developer>
+			<id>bnorthan</id>
+			<name>Brian Northan</name>
+			<url>http://imagej.net/User:Bnorthan</url>
+			<roles>
+				<role>lead</role>
+				<role>developer</role>
+				<role>debugger</role>
+				<role>support</role>
+				<role>reviewer</role>
+			</roles>
+		</developer>
+		<developer>
+			<id>hadim</id>
+			<name>Hadrien Mary</name>
+			<url>http://imagej.net/User:Hadim</url>
+			<roles>
+				<role>lead</role>
+				<role>developer</role>
+				<role>debugger</role>
+				<role>support</role>
+				<role>reviewer</role>
+			</roles>
+			<timezone>-5</timezone>
+		</developer>
+		<developer>
+			<id>ctrueden</id>
+			<name>Curtis Rueden</name>
+			<url>http://imagej.net/User:Rueden</url>
+			<roles>
+				<role>founder</role>
+				<role>debugger</role>
+				<role>reviewer</role>
+				<role>maintainer</role>
+			</roles>
+		</developer>
+	</developers>
+	<contributors>
+		<contributor>
+			<name>Ellen Arena</name>
+			<url>http://imagej.net/User:Etarena</url>
+			<properties>
+				<id>etarena</id>
+			</properties>
+		</contributor>
+		<contributor>
+			<name>Jan Eglinger</name>
+			<url>http://imagej.net/User:Eglinger</url>
+			<properties>
+				<id>imagejan</id>
+			</properties>
+		</contributor>
+		<contributor>
+			<name>Michael Entrup</name>
+			<url>http://imagej.net/User:M-entrup</url>
+			<properties>
+				<id>m-entrup</id>
+			</properties>
+		</contributor>
+		<contributor>
+			<name>Stefan Helfrich</name>
+			<url>http://imagej.net/User:Stelfrich</url>
+			<properties>
+				<id>stelfrich</id>
+			</properties>
+		</contributor>
+		<contributor>
+			<name>Mark Hiner</name>
+			<url>http://imagej.net/User:Hinerm</url>
+			<properties>
+				<id>hinerm</id>
+			</properties>
+		</contributor>
+	</contributors>
 
-    <mailingLists>
-        <mailingList>
-            <name>ImageJ Forum</name>
-            <archive>http://forum.imagej.net/</archive>
-        </mailingList>
-    </mailingLists>
+	<mailingLists>
+		<mailingList>
+			<name>ImageJ Forum</name>
+			<archive>http://forum.imagej.net/</archive>
+		</mailingList>
+	</mailingLists>
 
-    <scm>
-        <connection>scm:git:git://github.com/imagej/imagej-scripting</connection>
-        <developerConnection>scm:git:git@github.com:imagej/imagej-scripting</developerConnection>
-        <tag>HEAD</tag>
-        <url>https://github.com/imagej/imagej-scripting</url>
-    </scm>
-    <issueManagement>
-        <system>GitHub Issues</system>
-        <url>https://github.com/imagej/imagej-scripting/issues</url>
-    </issueManagement>
-    <ciManagement>
-        <system>Travis CI</system>
-        <url>https://travis-ci.org/imagej/imagej-scripting</url>
-    </ciManagement>
+	<scm>
+		<connection>scm:git:git://github.com/imagej/imagej-scripting</connection>
+		<developerConnection>scm:git:git@github.com:imagej/imagej-scripting</developerConnection>
+		<tag>HEAD</tag>
+		<url>https://github.com/imagej/imagej-scripting</url>
+	</scm>
+	<issueManagement>
+		<system>GitHub Issues</system>
+		<url>https://github.com/imagej/imagej-scripting/issues</url>
+	</issueManagement>
+	<ciManagement>
+		<system>Travis CI</system>
+		<url>https://travis-ci.org/imagej/imagej-scripting</url>
+	</ciManagement>
 
-    <properties>
-        <package-name>net.imagej.scripting</package-name>
-        <license.licenseName>bsd_2</license.licenseName>
-        <license.copyrightOwners>Board of Regents of the University of
-            Wisconsin-Madison.</license.copyrightOwners>
-        <license.projectName>ImageJ software for multidimensional image processing and analysis.</license.projectName>
-        <scripting-jython.version>0.4.1</scripting-jython.version>
-    </properties>
+	<properties>
+		<package-name>net.imagej.scripting</package-name>
+		<license.licenseName>bsd_2</license.licenseName>
+		<license.copyrightOwners>Board of Regents of the University of
+			Wisconsin-Madison.</license.copyrightOwners>
+		<license.projectName>ImageJ software for multidimensional image processing and analysis.</license.projectName>
+		<scripting-jython.version>0.4.1</scripting-jython.version>
+	</properties>
 
-    <repositories>
-        <repository>
-            <id>imagej.public</id>
-            <url>http://maven.imagej.net/content/groups/public</url>
-        </repository>
-    </repositories>
+	<repositories>
+		<repository>
+			<id>imagej.public</id>
+			<url>http://maven.imagej.net/content/groups/public</url>
+		</repository>
+	</repositories>
 
-    <dependencies>
-        <!-- ImageJ dependencies -->
-        <dependency>
-            <groupId>net.imagej</groupId>
-            <artifactId>imagej-common</artifactId>
-        </dependency>
+	<dependencies>
+		<!-- ImageJ dependencies -->
+		<dependency>
+			<groupId>net.imagej</groupId>
+			<artifactId>imagej-common</artifactId>
+		</dependency>
 
-        <!-- ImgLib2 dependencies -->
-        <dependency>
-            <groupId>net.imglib2</groupId>
-            <artifactId>imglib2</artifactId>
-        </dependency>
+		<!-- ImgLib2 dependencies -->
+		<dependency>
+			<groupId>net.imglib2</groupId>
+			<artifactId>imglib2</artifactId>
+		</dependency>
 
-        <!-- SciJava dependencies -->
-        <dependency>
-            <groupId>org.scijava</groupId>
-            <artifactId>scijava-common</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.scijava</groupId>
-            <artifactId>scripting-beanshell</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.scijava</groupId>
-            <artifactId>scripting-clojure</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.scijava</groupId>
-            <artifactId>scripting-groovy</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.scijava</groupId>
-            <artifactId>scripting-java</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.scijava</groupId>
-            <artifactId>scripting-javascript</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.scijava</groupId>
-            <artifactId>scripting-jruby</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.scijava</groupId>
-            <artifactId>scripting-jython</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.scijava</groupId>
-            <artifactId>scripting-renjin</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.scijava</groupId>
-            <artifactId>scripting-scala</artifactId>
-        </dependency>
+		<!-- SciJava dependencies -->
+		<dependency>
+			<groupId>org.scijava</groupId>
+			<artifactId>scijava-common</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.scijava</groupId>
+			<artifactId>scripting-beanshell</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.scijava</groupId>
+			<artifactId>scripting-clojure</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.scijava</groupId>
+			<artifactId>scripting-groovy</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.scijava</groupId>
+			<artifactId>scripting-java</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.scijava</groupId>
+			<artifactId>scripting-javascript</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.scijava</groupId>
+			<artifactId>scripting-jruby</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.scijava</groupId>
+			<artifactId>scripting-jython</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.scijava</groupId>
+			<artifactId>scripting-renjin</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.scijava</groupId>
+			<artifactId>scripting-scala</artifactId>
+		</dependency>
 
-        <!-- Test scope dependencies -->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.scijava</groupId>
-            <artifactId>junit-benchmarks</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.scif</groupId>
-            <artifactId>scifio</artifactId>
-            <scope>test</scope>
-            <type>jar</type>
-        </dependency>
-        <dependency>
-            <groupId>net.imagej</groupId>
-            <artifactId>imagej-ops</artifactId>
-            <scope>test</scope>
-            <type>jar</type>
-        </dependency>
-    </dependencies>
+		<!-- Test scope dependencies -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.scijava</groupId>
+			<artifactId>junit-benchmarks</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.scif</groupId>
+			<artifactId>scifio</artifactId>
+			<scope>test</scope>
+			<type>jar</type>
+		</dependency>
+		<dependency>
+			<groupId>net.imagej</groupId>
+			<artifactId>imagej-ops</artifactId>
+			<scope>test</scope>
+			<type>jar</type>
+		</dependency>
+	</dependencies>
 </project>
