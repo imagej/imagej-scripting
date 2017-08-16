@@ -1,7 +1,7 @@
-// @OpService ops
-// @ImgPlus inputData
-// @OUTPUT ImgPlus(label="Filtered") filtered
-// @OUTPUT ImgPlus(label="Convolved") result
+#@OpService ops
+#@ImgPlus inputData
+#@OUTPUT ImgPlus(label="Filtered") filtered
+#@OUTPUT ImgPlus(label="Convolved") result
 
 // This script takes an input image, applies a gaussian filter
 // to it, and then performs convolution with a custom kernel.
