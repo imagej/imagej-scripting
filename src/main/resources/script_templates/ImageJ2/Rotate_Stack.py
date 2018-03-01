@@ -79,7 +79,7 @@ for d in range(data.dimension(axis)):
     rotated = RealViews.affine(interpolant, affine)
      
     # Set the intervals
-    rotated = ops.transform().offset(rotated, frame)
+    rotated = ops.transform().offsetView(rotated, frame)
  
     output.append(rotated)
  
