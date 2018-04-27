@@ -11,7 +11,7 @@
 
 	<groupId>net.imagej</groupId>
 	<artifactId>imagej-scripting</artifactId>
-	<version>0.7.1-SNAPSHOT</version>
+	<version>0.8.0</version>
 
 	<name>ImageJ Scripting</name>
 	<description>ImageJ applications and examples for SciJava script languages.</description>
@@ -104,7 +104,7 @@
 	<scm>
 		<connection>scm:git:git://github.com/imagej/imagej-scripting</connection>
 		<developerConnection>scm:git:git@github.com:imagej/imagej-scripting</developerConnection>
-		<tag>HEAD</tag>
+		<tag>imagej-scripting-0.8.0</tag>
 		<url>https://github.com/imagej/imagej-scripting</url>
 	</scm>
 	<issueManagement>
