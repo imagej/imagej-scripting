@@ -70,37 +70,27 @@
 		<contributor>
 			<name>Ellen Arena</name>
 			<url>http://imagej.net/User:Etarena</url>
-			<properties>
-				<id>etarena</id>
-			</properties>
+			<properties><id>etarena</id></properties>
 		</contributor>
 		<contributor>
 			<name>Jan Eglinger</name>
 			<url>http://imagej.net/User:Eglinger</url>
-			<properties>
-				<id>imagejan</id>
-			</properties>
+			<properties><id>imagejan</id></properties>
 		</contributor>
 		<contributor>
 			<name>Michael Entrup</name>
 			<url>http://imagej.net/User:M-entrup</url>
-			<properties>
-				<id>m-entrup</id>
-			</properties>
+			<properties><id>m-entrup</id></properties>
 		</contributor>
 		<contributor>
 			<name>Stefan Helfrich</name>
 			<url>http://imagej.net/User:Stelfrich</url>
-			<properties>
-				<id>stelfrich</id>
-			</properties>
+			<properties><id>stelfrich</id></properties>
 		</contributor>
 		<contributor>
 			<name>Mark Hiner</name>
 			<url>http://imagej.net/User:Hinerm</url>
-			<properties>
-				<id>hinerm</id>
-			</properties>
+			<properties><id>hinerm</id></properties>
 		</contributor>
 	</contributors>
 
