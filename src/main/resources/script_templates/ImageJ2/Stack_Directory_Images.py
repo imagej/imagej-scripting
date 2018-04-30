@@ -4,6 +4,7 @@
 # @OUTPUT Dataset output
 
 # @DatasetService ds
+# @DatasetIOService io
 
 # This script takes a directory as a parameter, find all the files ending with ".tif" in the directory.
 # Sort them and stack them to create a 3D dataset.
@@ -27,7 +28,7 @@ if len(fnames) < 1:
 # Open and stack images
 stack = []
 for fname in fnames:
-    data = ds.open(fname)
+    data = io.open(fname)
 
     # Discard image with others than 2 dimensions
     if data.numDimensions() == 2:
