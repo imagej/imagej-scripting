@@ -1,7 +1,7 @@
-// @OpService ops
-// @CommandService cmd
-// @LogService log
-// @UIService ui
+#@ OpService ops
+#@ CommandService cmd
+#@ LogService log
+#@ UIService ui
 
 import net.imagej.ops.Op
 import net.imglib2.FinalDimensions

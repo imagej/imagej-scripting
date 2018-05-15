@@ -18,7 +18,6 @@ import javax.script.ScriptException;
 
 import net.imagej.Dataset;
 
-import org.junit.Assert;
 import org.junit.Test;
 import org.scijava.plugin.Parameter;
 import org.scijava.script.ScriptModule;

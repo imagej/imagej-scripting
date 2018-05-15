@@ -1,5 +1,5 @@
-#@OpService ops
-#@ImgPlus inputData
+#@ OpService ops
+#@ ImgPlus inputData
 #@OUTPUT ImgPlus(label="Filtered") filtered
 #@OUTPUT ImgPlus(label="Convolved") result
 

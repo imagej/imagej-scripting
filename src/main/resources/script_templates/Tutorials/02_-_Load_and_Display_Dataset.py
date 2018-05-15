@@ -1,6 +1,6 @@
-# @DatasetIOService ds
-# @UIService ui
-# @File file
+#@ DatasetIOService ds
+#@ UIService ui
+#@ File file
 
 # load the dataset
 dataset = ds.open(file.getAbsolutePath())

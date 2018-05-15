@@ -1,13 +1,13 @@
-# @Dataset data
-# @String(label="Dimension to Project", choices={"X", "Y", "Z", "TIME", "CHANNEL"}) projected_dimension
-# @String(label="Projection Type", choices={"Max","Mean","Median","Min", "StdDev", "Sum"}) projection_type
-# @OUTPUT Dataset output
-# @OpService ops
-# @DatasetService ds
+#@ Dataset data
+#@ String(label="Dimension to Project", choices={"X", "Y", "Z", "TIME", "CHANNEL"}) projected_dimension
+#@ String(label="Projection Type", choices={"Max","Mean","Median","Min", "StdDev", "Sum"}) projection_type
+#@OUTPUT Dataset output
+#@ OpService ops
+#@ DatasetService ds
 
 # Do a projection of a stack. The projection is done along a specified axis.
 # The commin use case of this script is to do a maximum Z projection.
- 
+
 from net.imagej.axis import Axes
 from net.imagej.ops import Ops
 

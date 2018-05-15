@@ -1,13 +1,13 @@
-# @Dataset data
-# @OUTPUT Dataset output
-# @DatasetService ds
-# @OpService ops
+#@ Dataset data
+#@OUTPUT Dataset output
+#@ DatasetService ds
+#@ OpService ops
 
 from net.imagej.axis import Axes
 from net.imglib2.util import Intervals
 
 # This function helps to crop a Dataset along an arbitrary number of Axes.
-# Intervals to crop are specified easily as a Python dict. 
+# Intervals to crop are specified easily as a Python dict.
 
 
 def get_axis(axis_type):
@@ -19,10 +19,9 @@ def get_axis(axis_type):
         'CHANNEL': Axes.CHANNEL,
     }.get(axis_type, Axes.Z)
 
- 
 def crop(ops, data, intervals):
     """Crop along a one or more axis.
- 
+
     Parameters
     ----------
     intervals : Dict specifying which axis to crop and with what intervals.
@@ -30,19 +29,19 @@ def crop(ops, data, intervals):
                 intervals = {'X' : [0, 50],
                              'Y' : [0, 50]}
     """
- 
+
     intervals_start = [data.min(d) for d in range(0, data.numDimensions())]
     intervals_end = [data.max(d) for d in range(0, data.numDimensions())]
- 
+
     for axis_type, interval in intervals.items():
         index = data.dimensionIndex(get_axis(axis_type))
         intervals_start[index] = interval[0]
         intervals_end[index] = interval[1]
- 
+
     intervals = Intervals.createMinMax(*intervals_start + intervals_end)
- 
+
     output = ops.run("transform.crop", data, intervals, True)
-    
+
     return output
 
 

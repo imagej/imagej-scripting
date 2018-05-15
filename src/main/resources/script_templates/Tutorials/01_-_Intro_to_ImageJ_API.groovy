@@ -1,8 +1,8 @@
-// @PluginService plugin
-// @LogService log
-// @StatusService status
-// @MenuService menu
-// @PlatformService platform
+#@ PluginService plugin
+#@ LogService log
+#@ StatusService status
+#@ MenuService menu
+#@ PlatformService platform
 
 // Here are some examples of the API in action:
 

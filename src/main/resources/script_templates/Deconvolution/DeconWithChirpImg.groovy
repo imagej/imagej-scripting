@@ -1,7 +1,7 @@
-// @OpService ops
-// @UIService ui
-// @ConvertService convert
-// @DatasetService data
+#@ OpService ops
+#@ UIService ui
+#@ ConvertService convert
+#@ DatasetService data
 
 // Author Daniel James White/Brian Northan
 // Prerequisite install http://www.optinav.info/Diffraction-PSF-3D.htm

@@ -1,15 +1,15 @@
-# @OpService ops
-# @UIService ui
-# @ImgPlus img
-# @Integer numIterations(value=30)
-# @Float numericalAperture(value=1.4)
-# @Float wavelength(value=550)
-# @Float riImmersion(value=1.5)
-# @Float riSample(value=1.4)
-# @Float xySpacing(value=62.9)
-# @Float zSpacing(value=160)
-# @OUTPUT ImgPlus psf
-# @OUTPUT ImgPlus deconvolved
+#@ OpService ops
+#@ UIService ui
+#@ ImgPlus img
+#@ Integer numIterations(value=30)
+#@ Float numericalAperture(value=1.4)
+#@ Float wavelength(value=550)
+#@ Float riImmersion(value=1.5)
+#@ Float riSample(value=1.4)
+#@ Float xySpacing(value=62.9)
+#@ Float zSpacing(value=160)
+#@OUTPUT ImgPlus psf
+#@OUTPUT ImgPlus deconvolved
 
 from net.imglib2 import FinalDimensions
 from net.imglib2.type.numeric.real import FloatType;

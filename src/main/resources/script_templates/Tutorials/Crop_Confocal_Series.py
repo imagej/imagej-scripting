@@ -1,9 +1,9 @@
-# @OpService ops
-# @Dataset data
-# @OUTPUT ImgPlus c0
-# @OUTPUT ImgPlus z12
-# @OUTPUT ImgPlus c0z12
-# @OUTPUT ImgPlus roiC0z12
+#@ OpService ops
+#@ Dataset data
+#@OUTPUT ImgPlus c0
+#@OUTPUT ImgPlus z12
+#@OUTPUT ImgPlus c0z12
+#@OUTPUT ImgPlus roiC0z12
 
 # to run this tutorial run 'file->Open Samples->Confocal Series' and make sure that
 # confocal-series.tif is the active image

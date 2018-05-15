@@ -1,6 +1,6 @@
-// @Dataset inputImg
-// @OpService ops
-// @OUTPUT Dataset(label="Blurred") blurredImg
+#@ Dataset inputImg
+#@ OpService ops
+#@OUTPUT Dataset(label="Blurred") blurredImg
 
 // A simple Scala script that blurs an input image with
 // a Gaussian filter. Note that you must have an image

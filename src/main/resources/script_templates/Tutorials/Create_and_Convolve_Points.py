@@ -1,9 +1,9 @@
-# @OpService ops
-# @int(value=128) xSize
-# @int(value=128) ySize
-# @int(value=128) zSize
-# @OUTPUT ImgPlus phantom
-# @OUTPUT ImgPlus convolved
+#@ OpService ops
+#@ Integer (value=128) xSize
+#@ Integer (value=128) ySize
+#@ Integer (value=128) zSize
+#@OUTPUT ImgPlus phantom
+#@OUTPUT ImgPlus convolved
 
 from net.imglib2 import Point
 
