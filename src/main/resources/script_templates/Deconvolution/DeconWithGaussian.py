@@ -1,10 +1,10 @@
-# @OpService ops
-# @UIService ui
-# @ImgPlus img
-# @Integer sxy
-# @Integer sz
-# @Integer numIterations
-# @OUTPUT ImgPlus deconvolved
+#@ OpService ops
+#@ UIService ui
+#@ ImgPlus img
+#@ Integer sxy
+#@ Integer sz
+#@ Integer numIterations
+#@OUTPUT ImgPlus deconvolved
 
 # convert to float (TODO: make sure deconvolution op works on other types)
 img_float=ops.convert().float32(img)

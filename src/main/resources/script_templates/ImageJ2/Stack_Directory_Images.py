@@ -1,10 +1,10 @@
-# @File(label="Directory of the images sequence", style="directory") images_sequence_dir
-# @String(label="Image File Extension", required=false, value=".tif") image_extension
-# @String(label="Type of Axis for the stack", required=false, value="TIME", choices={"TIME", "Z", "CHANNEL"}) axis_type
-# @OUTPUT Dataset output
+#@ File(label="Directory of the images sequence", style="directory") images_sequence_dir
+#@ String(label="Image File Extension", required=false, value=".tif") image_extension
+#@ String(label="Type of Axis for the stack", required=false, value="TIME", choices={"TIME", "Z", "CHANNEL"}) axis_type
+#@OUTPUT Dataset output
 
-# @DatasetService ds
-# @DatasetIOService io
+#@ DatasetService ds
+#@ DatasetIOService io
 
 # This script takes a directory as a parameter, find all the files ending with ".tif" in the directory.
 # Sort them and stack them to create a 3D dataset.

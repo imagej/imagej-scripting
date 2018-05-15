@@ -1,8 +1,8 @@
-# @Float(label="Rotation angle (in degree)", required=true, value=90, stepSize=0.1) angle
-# @Dataset data
-# @OUTPUT Dataset output
-# @OpService ops
-# @DatasetService ds
+#@ Float(label="Rotation angle (in degree)", required=true, value=90, stepSize=0.1) angle
+#@ Dataset data
+#@OUTPUT Dataset output
+#@ OpService ops
+#@ DatasetService ds
 
 # This script rotates all the frame of a stack along the TIME axis to a given angle.
 # I found this script over complicated for what it is supposed to do. I hope a simpler way to do this kind of 

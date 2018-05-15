@@ -1,7 +1,7 @@
-# @OpService ops
-# @UIService ui
-# @ImgPlus image
-# @ImgPlus template
+#@ OpService ops
+#@ UIService ui
+#@ ImgPlus image
+#@ ImgPlus template
 
 # Run this tutorial using the C0Z12 and roiC0Z12 images generated in the 'Crop Confocal Series' tutorial.
 

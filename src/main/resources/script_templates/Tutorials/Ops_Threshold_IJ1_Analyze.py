@@ -1,8 +1,8 @@
-# @OpService ops
-# @ImgPlus inputData
-# @Double sigma
-# @OUTPUT ImgPlus logFiltered
-# @OUTPUT ImgPlus thresholded
+#@ OpService ops
+#@ ImgPlus inputData
+#@ Double sigma
+#@OUTPUT ImgPlus logFiltered
+#@OUTPUT ImgPlus thresholded
 
 # Run this tutorial using the C0Z12 image generated in the 'Crop Confocal Series' tutorial.
 

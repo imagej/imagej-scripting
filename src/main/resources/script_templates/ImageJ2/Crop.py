@@ -1,7 +1,7 @@
-# @Dataset data
-# @OUTPUT Dataset output
-# @DatasetService ds
-# @OpService ops
+#@ Dataset data
+#@OUTPUT Dataset output
+#@ DatasetService ds
+#@ OpService ops
 
 from net.imagej.axis import Axes
 from net.imglib2.util import Intervals

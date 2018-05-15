@@ -1,7 +1,7 @@
-# @File(label='Choose a directory', style='directory') import_dir
-# @String(label='File types', value='tif;png') file_types
-# @String(label='Filter', value='') filters
-# @Boolean(label='Recursive search', value=True) do_recursive
+#@ File(label='Choose a directory', style='directory') import_dir
+#@ String(label='File types', value='tif;png') file_types
+#@ String(label='Filter', value='') filters
+#@ Boolean(label='Recursive search', value=True) do_recursive
 
 '''A batch opener using os.walk()
 

@@ -1,8 +1,8 @@
-# @OpService ops
-# @UIService ui
-# @Dataset data
-# @OUTPUT ImgPlus maxProjection
-# @OUTPUT ImgPlus sumProjection
+#@ OpService ops
+#@ UIService ui
+#@ Dataset data
+#@OUTPUT ImgPlus maxProjection
+#@OUTPUT ImgPlus sumProjection
 
 
 # Run this tutorial using the C0 image generated in the 'Crop Confocal Series' tutorial.

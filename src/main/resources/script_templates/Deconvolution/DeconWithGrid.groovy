@@ -1,7 +1,7 @@
-// @OpService ops
-// @UIService ui
-// @ConvertService convert
-// @DatasetService data
+#@ OpService ops
+#@ UIService ui
+#@ ConvertService convert
+#@ DatasetService data
 
 import net.imglib2.type.numeric.real.FloatType;
 import net.imagej.ops.Op

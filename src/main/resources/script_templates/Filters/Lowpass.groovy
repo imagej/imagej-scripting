@@ -1,8 +1,8 @@
-// @OpService ops
-// @UIService ui
-// @ImgPlus img
-// @Integer radius
-// @OUTPUT ImgPlus filtered
+#@ OpService ops
+#@ UIService ui
+#@ ImgPlus img
+#@ Integer radius
+#@OUTPUT ImgPlus filtered
 
 import net.imglib2.img.display.imagej.ImageJFunctions
 import net.imglib2.util.Util

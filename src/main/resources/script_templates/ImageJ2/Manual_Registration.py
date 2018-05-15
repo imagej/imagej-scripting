@@ -1,8 +1,8 @@
-# @Dataset ds
-# @OUTPUT Dataset output
-# @OpService ops
-# @LogService log
-# @DatasetService datasetService
+#@ Dataset ds
+#@OUTPUT Dataset output
+#@ OpService ops
+#@ LogService log
+#@ DatasetService datasetService
 
 # This script translates individual slices in a stack according to single
 # point ROIs (defined in the IJ1 ROIManager). If slices exist in between specified ROIs,

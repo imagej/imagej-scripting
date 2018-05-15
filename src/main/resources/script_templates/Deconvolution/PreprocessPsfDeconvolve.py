@@ -1,13 +1,13 @@
-# @OpService ops
-# @Dataset data
-# @Dataset psf
-# @Integer(value=128) psfXSize
-# @Integer(value=128) psfYSize
-# @Float(value=0.01) psfBackgroundPercent
-# @Boolean(value=True) nonCirculant
-# @Boolean(value=True) acceleration
-# @OUTPUT ImgPlus psf_
-# @OUTPUT ImgPlus deconvolved_
+#@ OpService ops
+#@ Dataset data
+#@ Dataset psf
+#@ Integer(value=128) psfXSize
+#@ Integer(value=128) psfYSize
+#@ Float(value=0.01) psfBackgroundPercent
+#@ Boolean(value=True) nonCirculant
+#@ Boolean(value=True) acceleration
+#@OUTPUT ImgPlus psf_
+#@OUTPUT ImgPlus deconvolved_
 
 # deconvolve an image, the key thing in this script is that the PSF is preprocessed so 
 # we get faster and better results. 

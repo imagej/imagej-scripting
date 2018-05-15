@@ -1,8 +1,8 @@
-# @OpService ops
-# @ImgPlus beads
-# @OUTPUT ImgPlus thresholded
-# @OUTPUT ImgPlus points
-# @OUTPUT ImgPlus psf
+#@ OpService ops
+#@ ImgPlus beads
+#@OUTPUT ImgPlus thresholded
+#@OUTPUT ImgPlus points
+#@OUTPUT ImgPlus psf
 
 from net.imglib2.algorithm.labeling.ConnectedComponents import StructuringElement
 from net.imglib2.roi import Regions;

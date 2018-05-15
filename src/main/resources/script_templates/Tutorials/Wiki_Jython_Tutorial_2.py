@@ -1,7 +1,7 @@
-# @String(value='Please set some parameters.', visibility='MESSAGE') message
-# @Short(label='Image size', value=512, min=128, max=2048, stepSize=128, style="slider") img_size
-# @Double(label='Image amplitude', value=100) amplitude
-# @Short(label='Spacing', value=16, min=8) spacing
+#@ String(value='Please set some parameters.', visibility='MESSAGE') message
+#@ Short(label='Image size', value=512, min=128, max=2048, stepSize=128, style="slider") img_size
+#@ Double(label='Image amplitude', value=100) amplitude
+#@ Short(label='Spacing', value=16, min=8) spacing
 
 '''Using Scripting Parameters
 

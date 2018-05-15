@@ -1,6 +1,6 @@
-# @Dataset data
-# @Dataset mask
-# @OUTPUT Dataset output
+#@ Dataset data
+#@ Dataset mask
+#@OUTPUT Dataset output
 
 # Given a mask (binary image) and a raw image, remove background pixel from raw by
 # keeping only those in the mask (different from 0).

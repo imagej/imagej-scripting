@@ -1,9 +1,9 @@
-# @String(label="Threshold Method", required=true, choices={'otsu', 'huang'}) method_threshold
-# @Float(label="Relative threshold", required=true, value=1, stepSize=0.1) relative_threshold
-# @Dataset data
-# @OUTPUT Dataset output
-# @OpService ops
-# @DatasetService ds
+#@ String(label="Threshold Method", required=true, choices={'otsu', 'huang'}) method_threshold
+#@ Float(label="Relative threshold", required=true, value=1, stepSize=0.1) relative_threshold
+#@ Dataset data
+#@OUTPUT Dataset output
+#@ OpService ops
+#@ DatasetService ds
 
 # Apply an automatic threshold from a given method. The threshold value 'threshold_value'
 # can be modulated by a relative parameter called 'relative_threshold' (if equal to 1 it does

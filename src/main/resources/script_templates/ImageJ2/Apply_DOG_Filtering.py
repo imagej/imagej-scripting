@@ -1,9 +1,9 @@
-# @Dataset data
-# @Float(label="Sigma 1 (pixel)", required=true, value=4.2, stepSize=0.1) sigma1
-# @Float(label="Sigma 2 (pixel)", required=true, value=1.25, stepSize=0.1) sigma2
-# @OUTPUT Dataset output
-# @OpService ops
-# @DatasetService ds
+#@ Dataset data
+#@ Float(label="Sigma 1 (pixel)", required=true, value=4.2, stepSize=0.1) sigma1
+#@ Float(label="Sigma 2 (pixel)", required=true, value=1.25, stepSize=0.1) sigma2
+#@OUTPUT Dataset output
+#@ OpService ops
+#@ DatasetService ds
 
 # Run a DOG filter on all the frames along the TIME axis.
 # After the filtering step the image is clipped to match the input type.

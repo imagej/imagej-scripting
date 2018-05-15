@@ -1,7 +1,7 @@
-# @Dataset data
-# @OUTPUT Dataset output
-# @OpService ops
-# @DatasetService ds
+#@ Dataset data
+#@OUTPUT Dataset output
+#@ OpService ops
+#@ DatasetService ds
 
 # Subtract the first frame of a stack to all the frames of the given stack along the TIME axis.
 # It removes the static elements from a stack. Usefull when you are studying moving objects.

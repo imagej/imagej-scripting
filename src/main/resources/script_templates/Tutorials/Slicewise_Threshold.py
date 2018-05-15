@@ -1,6 +1,6 @@
-# @OpService ops
-# @Dataset data
-# @OUTPUT ImgPlus thresholdedPlus
+#@ OpService ops
+#@ Dataset data
+#@OUTPUT ImgPlus thresholdedPlus
 
 # To run this tutorial, go to 'File>Open Samples>Confocal Series' and make sure
 # that confocal-series.tif is the active image

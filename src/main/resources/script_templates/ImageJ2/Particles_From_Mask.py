@@ -1,6 +1,6 @@
-# @ImageJ ij
-# @Dataset data
-# @Dataset mask
+#@ ImageJ ij
+#@ Dataset data
+#@ Dataset mask
 
 # This script identify all the particles from a mask and create label regions over which you can iterate.
 # The second part of the script display all the detected regions into the IJ1 RoiManager.
