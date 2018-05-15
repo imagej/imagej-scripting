@@ -8,15 +8,15 @@
 This code is part of the Jython tutorial at the ImageJ wiki.
 http://imagej.net/Jython_Scripting#Using_Scripting_Parameters
 '''
- 
+
 # The parameters in front of this comment are populated before the script runs.
 # Details on Script parameters can be found at
 # http://imagej.net/Script_parameters
- 
+
 # The module __future__ contains some useful functions:
 # https://docs.python.org/2/library/__future__.html
 from __future__ import with_statement, division
- 
+
 # It's best practice to create a function that contains the code that is executed when running the script.
 # This enables us to stop the script by just calling return.
 def run_script():
@@ -53,10 +53,10 @@ def run_script():
     filtered = fft_filter(crystal_with_noise)
     # We create a lambda function to be used as a parameter of img_calc().
     subtract = lambda values: values[0] - values[1]
-    """ This is a short form for:
-    def subtract(values):
-        return values[0] - values[1]
-    """
+    # This is a short form for:
+    # def subtract(values):
+    #   return values[0] - values[1]
+
     # The first time we call img_calc with 2 images.
     difference = img_calc(subtract, crystal, filtered, title="Difference of 2")
     difference.show()
@@ -65,11 +65,11 @@ def run_script():
     minimum.show()
     for imp in (crystal, crystal_with_noise, filtered, difference, minimum):
         IJ.run(imp, "Measure", "")
- 
+
 # Functions can be defined after they are used.
 # This is only possible if the main code is encapsulated into a function.
 # The main function has to be called at the end of the script.
- 
+
 def img_calc(func, *imps, **kwargs):
     """Runs the given function on each pixel of the given list of images.
     An additional parameter, the title of the result, is passed as keyword parameter.
@@ -87,17 +87,17 @@ def img_calc(func, *imps, **kwargs):
     from ij import ImagePlus
     from ij.process import FloatProcessor
     return ImagePlus(kwargs['title'], FloatProcessor(img_size, img_size, result))
- 
+
 def split_list(alist, wanted_parts=1):
     """Split a list to the given number of parts."""
     length = len(alist)
     # alist[a:b:step] is used to get only a subsection of the list 'alist'.
     # alist[a:b] is the same as [a:b:1].
     # '//' is an integer division.
-    # Without 'from __future__ import division' '/' would be an integer division. 
-    return [ alist[i*length // wanted_parts: (i+1)*length // wanted_parts] 
+    # Without 'from __future__ import division' '/' would be an integer division.
+    return [ alist[i*length // wanted_parts: (i+1)*length // wanted_parts]
              for i in range(wanted_parts) ]
- 
+
 def fft_filter(imp):
     """ Removing noise from an image by using a FFT filter
     This are operations copied from the ImageJ macro recorder.
@@ -122,8 +122,8 @@ def fft_filter(imp):
     imp_filtered.setTitle("Filtered " + imp.getTitle())
     imp_filtered.changes = False
     return imp_filtered
- 
- 
+
+
 # If a Jython script is run, the variable __name__ contains the string '__main__'.
 # If a script is loaded as module, __name__ has a different value.
 if __name__ == '__main__':

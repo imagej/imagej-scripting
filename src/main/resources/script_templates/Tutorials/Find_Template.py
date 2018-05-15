@@ -44,7 +44,7 @@ ImageJFunctions.show( templateFFT,ComplexPhaseFloatConverter() ).setTitle( "fft 
 
 # display fft real values
 ImageJFunctions.show( templateFFT,ComplexRealFloatConverter() ).setTitle( "fft real values" )
-        
+
 # display fft imaginary values
 ImageJFunctions.show( templateFFT, ComplexImaginaryFloatConverter() ).setTitle( "fft imaginary values" )
 
@@ -56,7 +56,7 @@ for  t in templateFFT:
 	c.mul(t)
 	t.div(c)
 
-# create Img memory for inverse FFT and compute inverse 
+# create Img memory for inverse FFT and compute inverse
 templateInverse=ops.create().img([template.dimension(0), template.dimension(1)])
 
 ops.filter().ifft(templateInverse, templateFFT)
@@ -65,4 +65,3 @@ ui.show("template inverse", templateInverse)
 # convolve templateInverse with image
 final=ops.filter().convolve(image, templateInverse)
 ui.show("final", final)
-	

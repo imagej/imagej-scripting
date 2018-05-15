@@ -8,7 +8,7 @@
 # Run this tutorial using the C0Z12 image generated in the 'Crop Confocal Series' tutorial.
 
 # To generate the C0Z12 image, do the following:
-# Go to 'file>Open Samples>Confocal Series' and make sure confocal-series.tif is the active image and 
+# Go to 'file>Open Samples>Confocal Series' and make sure confocal-series.tif is the active image and
 # run the Crop Confocal Series tutorial.
 
 from net.imglib2.algorithm.labeling.ConnectedComponents import StructuringElement
@@ -39,5 +39,3 @@ for region in regions:
 	intensity=ops.stats().mean(Regions.sample(region, inputData)).getRealDouble()
 
 	print "size",size,"intensity",intensity
-	
-	

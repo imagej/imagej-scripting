@@ -17,7 +17,7 @@ if not Intervals.equalDimensions(data, mask):
     raise Exception("Dimensions from input dataset does not match.")
 
 # Create the cursors
-output = data.duplicate() 
+output = data.duplicate()
 targetCursor = output.localizingCursor()
 dataRA = data.randomAccess()
 maskRA = mask.randomAccess()
@@ -27,7 +27,7 @@ while targetCursor.hasNext():
     targetCursor.fwd()
     dataRA.setPosition(targetCursor)
     maskRA.setPosition(targetCursor)
- 
+
     if maskRA.get().get() == 0:
         targetCursor.get().set(0)
     else:

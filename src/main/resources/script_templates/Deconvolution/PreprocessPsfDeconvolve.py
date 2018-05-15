@@ -9,8 +9,8 @@
 #@OUTPUT ImgPlus psf_
 #@OUTPUT ImgPlus deconvolved_
 
-# deconvolve an image, the key thing in this script is that the PSF is preprocessed so 
-# we get faster and better results. 
+# deconvolve an image, the key thing in this script is that the PSF is preprocessed so
+# we get faster and better results.
 # 1.  Crop PSF (smaller PSF -> faster results (assuming we extend image to avoid wrap around)
 # 2.  Normalize PSF (required to keep sum of image signal constant)
 # 3.  Subtract background from PSF (small background values can reduce deconvolution quality)
@@ -18,8 +18,6 @@
 from net.imglib2.util import Intervals
 from net.imagej.axis import Axes
 from net.imglib2.type.numeric.real import FloatType
-
-from java.lang.Math import floor
 
 # crop PSF to desired size, this makes decon run faster with little effect on final quality
 psfX = psf.dimension(data.dimensionIndex(Axes.X))
@@ -52,5 +50,5 @@ psf_=ops.math().divide(psf_, sumpsf);
 # convert image to 32 bit
 img_=ops.convert().float32(data.getImgPlus());
 
-# now deconvolve 
+# now deconvolve
 deconvolved_=ops.deconvolve().richardsonLucy(img_, psf_, None, None, None, None, None, 30, nonCirculant, acceleration)

@@ -14,19 +14,19 @@ from random import random
 # https://imagej.nih.gov/ij/developer/api/allclasses-noframe.html
 from ij import IJ, WindowManager
 from ij.gui import GenericDialog
- 
+
 # A function is created with the def keyword.
 # This function does not need any parameters.
 def create_test_image():
     # Python uses indentation to create code blocks
- 
+
     # Local variables are assigned.
     # We can assign the same value to more than one variable.
     image_width = image_height = 512
     box_width = box_height = 128
     offset_x = offset_y = 192
     counts = 64
-    stdv = 16 
+    stdv = 16
     # The build in function int() is used to convert float to int.
     # The variable random contains a function that is called by adding parentheses.
     offset_x = int(2 * random() * offset_x)
@@ -41,7 +41,7 @@ def create_test_image():
         to_join = (prefix,) + to_concat
         # We create a generator that converts every singe entry of the tuple to a string.
         strings_to_join = (str(arg) for arg in to_join)
-        # The string ',' has a join method to concatenate values of a tuple with the string as seperator. 
+        # The string ',' has a join method to concatenate values of a tuple with the string as seperator.
         # The result is a string.
         return ','.join(strings_to_join)
     def check_existence(title):
@@ -64,7 +64,7 @@ def create_test_image():
         # We don't want to confirm when closing one of the newly created images.
         imp.changes = False
         imp.show()
- 
+
 # This function uses parameters.
 # A default value is given to the third parameter.
 def create_selection_dialog(image_titles, defaults, title='Select images for processing'):
@@ -81,13 +81,13 @@ def create_selection_dialog(image_titles, defaults, title='Select images for pro
     # _ is used as a placeholder for values we don't use.
     # The for loop is used to call gd.getNextChoiceIndex() len(defaults) times.
     return [gd.getNextChoiceIndex() for _ in defaults]
- 
+
 # It's best practice to create a function that contains the code that is executed when running the script.
 # This enables us to stop the script by just calling return.
 def run_script():
     while WindowManager.getImageCount() < 10:
         create_test_image()
-     
+
     image_titles = [WindowManager.getImage(id).getTitle() for id in WindowManager.getIDList()]
     # range(3) will create the list [0, 1, 2].
     selected_indices = create_selection_dialog(image_titles, range(3))
@@ -100,12 +100,12 @@ def run_script():
     # The previous line can be split into 2 lines:
     # selected_ids = [WindowManager.getIDList()[index] for index in selected_indices]
     # selected_imps = [WindowManager.getImage(id) for id in selected_ids]
-     
+
     for imp in selected_imps:
         # Strings can be formated using the % operator:
         # http://www.learnpython.org/en/String_Formatting
         IJ.log('The image \'%s\' has been selected.' % imp.getTitle())
- 
+
 # If a Jython script is run, the variable __name__ contains the string '__main__'.
 # If a script is loaded as module, __name__ has a different value.
 if __name__ == '__main__':
