@@ -126,5 +126,5 @@ def fft_filter(imp):
 
 # If a Jython script is run, the variable __name__ contains the string '__main__'.
 # If a script is loaded as module, __name__ has a different value.
-if __name__ == '__main__':
+if __name__ in ['__builtin__','__main__']:
     run_script()
