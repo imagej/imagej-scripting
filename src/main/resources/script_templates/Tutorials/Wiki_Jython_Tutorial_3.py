@@ -132,7 +132,7 @@ def split_string(input_string):
     strings_striped = [string.strip() for string in string_splitted]
     return strings_striped
 
-if __name__ == '__main__':
+if __name__ in ['__builtin__','__main__']:
     # Run the batch_open_images() function using the Scripting Parameters.
     images = batch_open_images(import_dir,
                                split_string(file_types),
