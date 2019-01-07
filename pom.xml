@@ -15,11 +15,11 @@
 
 	<name>ImageJ Scripting</name>
 	<description>ImageJ applications and examples for SciJava script languages.</description>
-	<url>http://imagej.net/Scripting</url>
+	<url>https://imagej.net/Scripting</url>
 	<inceptionYear>2015</inceptionYear>
 	<organization>
 		<name>ImageJ</name>
-		<url>http://imagej.net/</url>
+		<url>https://imagej.net/</url>
 	</organization>
 	<licenses>
 		<license>
@@ -32,7 +32,7 @@
 		<developer>
 			<id>bnorthan</id>
 			<name>Brian Northan</name>
-			<url>http://imagej.net/User:Bnorthan</url>
+			<url>https://imagej.net/User:Bnorthan</url>
 			<roles>
 				<role>lead</role>
 				<role>developer</role>
@@ -44,7 +44,7 @@
 		<developer>
 			<id>hadim</id>
 			<name>Hadrien Mary</name>
-			<url>http://imagej.net/User:Hadim</url>
+			<url>https://imagej.net/User:Hadim</url>
 			<roles>
 				<role>lead</role>
 				<role>developer</role>
@@ -57,7 +57,7 @@
 		<developer>
 			<id>ctrueden</id>
 			<name>Curtis Rueden</name>
-			<url>http://imagej.net/User:Rueden</url>
+			<url>https://imagej.net/User:Rueden</url>
 			<roles>
 				<role>founder</role>
 				<role>debugger</role>
@@ -69,27 +69,27 @@
 	<contributors>
 		<contributor>
 			<name>Ellen Arena</name>
-			<url>http://imagej.net/User:Etarena</url>
+			<url>https://imagej.net/User:Etarena</url>
 			<properties><id>etarena</id></properties>
 		</contributor>
 		<contributor>
 			<name>Jan Eglinger</name>
-			<url>http://imagej.net/User:Eglinger</url>
+			<url>https://imagej.net/User:Eglinger</url>
 			<properties><id>imagejan</id></properties>
 		</contributor>
 		<contributor>
 			<name>Michael Entrup</name>
-			<url>http://imagej.net/User:M-entrup</url>
+			<url>https://imagej.net/User:M-entrup</url>
 			<properties><id>m-entrup</id></properties>
 		</contributor>
 		<contributor>
 			<name>Stefan Helfrich</name>
-			<url>http://imagej.net/User:Stelfrich</url>
+			<url>https://imagej.net/User:Stelfrich</url>
 			<properties><id>stelfrich</id></properties>
 		</contributor>
 		<contributor>
 			<name>Mark Hiner</name>
-			<url>http://imagej.net/User:Hinerm</url>
+			<url>https://imagej.net/User:Hinerm</url>
 			<properties><id>hinerm</id></properties>
 		</contributor>
 	</contributors>
@@ -132,7 +132,7 @@
 	<repositories>
 		<repository>
 			<id>imagej.public</id>
-			<url>http://maven.imagej.net/content/groups/public</url>
+			<url>https://maven.imagej.net/content/groups/public</url>
 		</repository>
 	</repositories>
 
