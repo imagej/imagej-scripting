@@ -38,7 +38,7 @@ public class ImageJ2ScriptTest extends AbstractScriptTest {
 		final Map<String, Object> parameters = new HashMap<>();
 
 		final String testPath =
-			"8bit-signed&pixelType=int8&axes=X,Y,Z,Channel,Time&lengths=10,10,3,2,10.fake";
+			"scifioTestImg://8bit-signed?pixelType=int8&axes=X,Y,Z,Channel,Time&lengths=10,10,3,2,10";
 		final Dataset data = datasetIOService.open(testPath);
 		parameters.put("data", data);
 		parameters.put("sigma1", 4.0);
@@ -61,7 +61,7 @@ public class ImageJ2ScriptTest extends AbstractScriptTest {
 		final Map<String, Object> parameters = new HashMap<>();
 
 		final String testPath =
-			"8bit-signed&pixelType=int8&axes=X,Y,Z,Channel,Time&lengths=10,10,3,2,10.fake";
+			"scifioTestImg://8bit-signed?pixelType=int8&axes=X,Y,Z,Channel,Time&lengths=10,10,3,2,10";
 		final Dataset data = datasetIOService.open(testPath);
 		parameters.put("data", data);
 
@@ -86,7 +86,7 @@ public class ImageJ2ScriptTest extends AbstractScriptTest {
 		final Map<String, Object> parameters = new HashMap<>();
 
 		final String testPath =
-			"8bit-signed&pixelType=int8&axes=X,Y,Z,Channel,Time&lengths=10,10,3,2,10.fake";
+			"scifioTestImg://8bit-signed?pixelType=int8&axes=X,Y,Z,Channel,Time&lengths=10,10,3,2,10";
 		final Dataset data = datasetIOService.open(testPath);
 		parameters.put("data", data);
 
@@ -111,7 +111,7 @@ public class ImageJ2ScriptTest extends AbstractScriptTest {
 		final Map<String, Object> parameters = new HashMap<>();
 
 		final String testPath =
-			"8bit-signed&pixelType=int8&axes=X,Y,Z,Channel,Time&lengths=10,10,3,2,10.fake";
+			"scifioTestImg://8bit-signed?pixelType=int8&axes=X,Y,Z,Channel,Time&lengths=10,10,3,2,10";
 		final Dataset data = datasetIOService.open(testPath);
 		parameters.put("data", data);
 
@@ -134,7 +134,7 @@ public class ImageJ2ScriptTest extends AbstractScriptTest {
 		final Map<String, Object> parameters = new HashMap<>();
 
 		final String testPath =
-			"8bit-signed&pixelType=int8&axes=X,Y,Z,Channel,Time&lengths=10,10,3,2,10.fake";
+			"scifioTestImg://8bit-signed?pixelType=int8&axes=X,Y,Z,Channel,Time&lengths=10,10,3,2,10";
 		final Dataset data = datasetIOService.open(testPath);
 		parameters.put("data", data);
 
@@ -156,7 +156,7 @@ public class ImageJ2ScriptTest extends AbstractScriptTest {
 		final Map<String, Object> parameters = new HashMap<>();
 
 		final String testPath =
-			"8bit-signed&pixelType=int8&axes=X,Y,Time&lengths=10,10,10.fake";
+			"scifioTestImg://8bit-signed?pixelType=int8&axes=X,Y,Time&lengths=10,10,10";
 		final Dataset data = datasetIOService.open(testPath);
 		parameters.put("data", data);
 
@@ -180,7 +180,7 @@ public class ImageJ2ScriptTest extends AbstractScriptTest {
 		final Map<String, Object> parameters = new HashMap<>();
 
 		final String testPath =
-			"8bit-signed&pixelType=int8&axes=X,Y,Time&lengths=10,10,10.fake";
+			"scifioTestImg://8bit-signed?pixelType=int8&axes=X,Y,Time&lengths=10,10,10";
 		final Dataset data = datasetIOService.open(testPath);
 		parameters.put("data", data);
 
@@ -202,18 +202,18 @@ public class ImageJ2ScriptTest extends AbstractScriptTest {
 		// Create a temp directory and store some 2D images inside
 		final Path tempDir = Files.createTempDirectory("temp_images_sequence");
 		final String testPath =
-			"8bit-signed&pixelType=int8&axes=X,Y&lengths=10,10.fake";
+			"scifioTestImg://8bit-signed?pixelType=uint8&axes=X,Y&lengths=10,10";
 		String fname;
 		Dataset data;
 		for (int i = 0; i < 5; i++) {
 			data = datasetIOService.open(testPath);
-			fname = Paths.get(tempDir.toString(), "image_" + i + ".tif").toString();
+			fname = Paths.get(tempDir.toString(), "image_" + i + ".jpeg").toString();
 			datasetIOService.save(data, fname);
 		}
 
 		final Map<String, Object> parameters = new HashMap<>();
 		parameters.put("images_sequence_dir", tempDir.toString());
-		parameters.put("image_extension", ".tif");
+		parameters.put("image_extension", ".jpeg");
 		parameters.put("axis_type", "TIME");
 
 		final File scriptFile = new File(getClass().getResource(

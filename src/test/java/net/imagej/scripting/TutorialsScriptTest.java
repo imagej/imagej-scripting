@@ -39,7 +39,7 @@ public class TutorialsScriptTest extends AbstractScriptTest {
 		final Map<String, Object> parameters = new HashMap<>();
 
 		final String testPath =
-			"8bit-signed&pixelType=int8&axes=X,Y,Channel,Z,&lengths=400,400,2,25.fake";
+			"scifioTestImg://8bit-signed?pixelType=int8&axes=X,Y,Channel,Z,&lengths=400,400,2,25";
 		final Dataset data = datasetIOService.open(testPath);
 		parameters.put("data", data);
 		parameters.put("sigma1", 4.0);
@@ -67,9 +67,9 @@ public class TutorialsScriptTest extends AbstractScriptTest {
 		final Map<String, Object> parameters = new HashMap<>();
 
 		final String testPath1 =
-			"8bit-signed&pixelType=int8&axes=X,Y,&lengths=400,400.fake";
+			"scifioTestImg://8bit-signed?pixelType=int8&axes=X,Y,&lengths=400,400";
 		final String testPath2 =
-			"8bit-signed&pixelType=int8&axes=X,Y,&lengths=40,40.fake";
+			"scifioTestImg://8bit-signed?pixelType=int8&axes=X,Y,&lengths=40,40";
 
 		final Dataset data1 = datasetIOService.open(testPath1);
 		final Dataset data2 = datasetIOService.open(testPath2);
@@ -126,7 +126,7 @@ public class TutorialsScriptTest extends AbstractScriptTest {
 	{
 
 		final String testPath =
-			"8bit-signed&pixelType=int8&axes=X,Y,&lengths=100,100.fake";
+			"scifioTestImg://8bit-signed?pixelType=int8&axes=X,Y,&lengths=100,100";
 		final Dataset data = datasetIOService.open(testPath);
 
 		final Map<String, Object> parameters = new HashMap<>();
@@ -164,7 +164,7 @@ public class TutorialsScriptTest extends AbstractScriptTest {
 	{
 
 		final String testPath =
-			"8bit-signed&pixelType=int8&axes=X,Y,Z,&lengths=100,100,100.fake";
+			"scifioTestImg://8bit-signed?pixelType=int8&axes=X,Y,Z,&lengths=100,100,100";
 		final Dataset data = datasetIOService.open(testPath);
 
 		final Map<String, Object> parameters = new HashMap<>();
@@ -197,7 +197,7 @@ public class TutorialsScriptTest extends AbstractScriptTest {
 	{
 
 		final String testPath =
-			"8bit-signed&pixelType=int8&axes=X,Y,&lengths=100,100.fake";
+			"scifioTestImg://8bit-signed?pixelType=int8&axes=X,Y,&lengths=100,100";
 		final Dataset data = datasetIOService.open(testPath);
 
 		final Map<String, Object> parameters = new HashMap<>();
@@ -230,7 +230,7 @@ public class TutorialsScriptTest extends AbstractScriptTest {
 	{
 
 		final String testPath =
-			"8bit-signed&pixelType=int8&axes=X,Y,Z,&lengths=100,100,100.fake";
+			"scifioTestImg://8bit-signed?pixelType=int8&axes=X,Y,Z,&lengths=100,100,100";
 		final Dataset data = datasetIOService.open(testPath);
 
 		final Map<String, Object> parameters = new HashMap<>();

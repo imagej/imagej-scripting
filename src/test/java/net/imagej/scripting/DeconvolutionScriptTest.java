@@ -39,7 +39,7 @@ public class DeconvolutionScriptTest extends AbstractScriptTest {
 	{
 
 		final String testPath =
-			"8bit-signed&pixelType=int8&axes=X,Y,Z,&lengths=100,100,50.fake";
+			"scifioTestImg://8bit-signed?pixelType=int8&axes=X,Y,Z,&lengths=100,100,50";
 		final Dataset data = datasetIOService.open(testPath);
 
 		final Map<String, Object> parameters = new HashMap<>();
