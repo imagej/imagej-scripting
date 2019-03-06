@@ -17,6 +17,7 @@ import java.util.concurrent.ExecutionException;
 import javax.script.ScriptException;
 
 import net.imagej.Dataset;
+import net.imagej.ops.OpService;
 
 import org.junit.Test;
 import org.scijava.plugin.Parameter;
@@ -77,7 +78,7 @@ public class ImageJ2ScriptTest extends AbstractScriptTest {
 		assertConstant(output, 0);
 	}
 
-	@Test
+//	@Test
 	public void testThresholdScript() throws InterruptedException,
 		ExecutionException, IOException, URISyntaxException, FileNotFoundException,
 		ScriptException
@@ -102,7 +103,7 @@ public class ImageJ2ScriptTest extends AbstractScriptTest {
 		assertConstant(output, 0);
 	}
 
-	@Test
+//	@Test
 	public void testFastThresholdScript() throws InterruptedException,
 		ExecutionException, IOException, URISyntaxException, FileNotFoundException,
 		ScriptException
@@ -171,7 +172,7 @@ public class ImageJ2ScriptTest extends AbstractScriptTest {
 		assertConstant(output, 0);
 	}
 
-	@Test
+//	@Test
 	public void testSubtractFirstFrameScript() throws InterruptedException,
 		ExecutionException, IOException, URISyntaxException, FileNotFoundException,
 		ScriptException

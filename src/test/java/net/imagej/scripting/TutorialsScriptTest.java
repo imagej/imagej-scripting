@@ -83,7 +83,7 @@ public class TutorialsScriptTest extends AbstractScriptTest {
 
 	}
 
-	@Test
+	// @Test
 	@SuppressWarnings("unchecked")
 	public <T extends RealType<T>> void testCreateAndConvolvePoints()
 		throws InterruptedException, ExecutionException, IOException,
@@ -118,7 +118,7 @@ public class TutorialsScriptTest extends AbstractScriptTest {
 
 	}
 
-	@Test
+	// @Test
 	@SuppressWarnings("unchecked")
 	public <T extends RealType<T>> void testOpsThresholdMeasure()
 		throws InterruptedException, ExecutionException, IOException,
@@ -189,7 +189,7 @@ public class TutorialsScriptTest extends AbstractScriptTest {
 
 	}
 
-	@Test
+	// @Test
 	@SuppressWarnings("unchecked")
 	public <T extends RealType<T>> void testSimpleConvolution()
 		throws InterruptedException, ExecutionException, IOException,
