@@ -41,5 +41,5 @@ depth = 0;
 psf = ops.create().kernelDiffraction(psfSize, numericalAperture, wavelength,
 				riSample, riImmersion, xySpacing, zSpacing, depth, FloatType());
 
-deconvolved = ops.deconvolve().richardsonLucy(imgF, psf, borderSize, None,
+deconvolved = ops.deconvolve().richardsonLucy(ops.create().img(imgF), imgF, psf, borderSize, None,
 					None, None, None, numIterations, True, True);

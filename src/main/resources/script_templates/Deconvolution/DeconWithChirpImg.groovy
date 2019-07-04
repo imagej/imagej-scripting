@@ -40,7 +40,7 @@ psf=IJ.getImage()
 psf=ImageJFunctions.wrapFloat(psf)
 
 // convolve chirp and psf
-convolved=ops.filter().convolve(exponentialChirp, psf)
+convolved=ops.filter().convolve(ops.create().img(exponentialChirp), exponentialChirp, psf)
 ui.show("convolved", convolved)
 
 plotProfile()
@@ -52,18 +52,18 @@ ui.show("noisy", noisy)
 plotProfile()
 
 // deconvolve
-deconvolved=ops.deconvolve().richardsonLucy(noisy, psf,10)
+deconvolved=ops.deconvolve().richardsonLucy(ops.create().img(noisy), noisy, psf,10)
 ui.show("deconvolved", deconvolved)
 plotProfile()
 
-deconvolved_accelerated=ops.deconvolve().richardsonLucy(noisy, psf, null, null, null, null, null, 10, false, true)
+deconvolved_accelerated=ops.deconvolve().richardsonLucy(ops.create().img(noisy), noisy, psf, null, null, null, null, null, 10, false, true)
 ui.show("deconvolved accelerated", deconvolved_accelerated)
 plotProfile()
 
-deconvolved_rltv=ops.deconvolve().richardsonLucyTV(noisy, psf, 10, 0.01)
+deconvolved_rltv=ops.deconvolve().richardsonLucyTV(ops.create().img(noisy), noisy, psf, 10, 0.01)
 ui.show("deconvolved rltv", deconvolved_rltv)
 plotProfile()
 
-deconvolved_rltv_accelerated=ops.deconvolve().richardsonLucyTV(noisy, psf, null, null, null, null, null, 10, false, true, 0.01)
+deconvolved_rltv_accelerated=ops.deconvolve().richardsonLucyTV(ops.create().img(noisy), noisy, psf, null, null, null, null, null, 10, false, true, 0.01)
 ui.show("deconvolved rltv accelerated", deconvolved_rltv_accelerated)
 plotProfile()

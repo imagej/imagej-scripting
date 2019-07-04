@@ -18,4 +18,5 @@ elif img_float.numDimensions()==2:
 ui.show(psf)
 
 # deconvolve
-deconvolved=ops.deconvolve().richardsonLucyTV(img_float, psf, numIterations, 0.01)
+out=ops.create().img(img_float);
+deconvolved=ops.deconvolve().richardsonLucyTV(out,img_float, psf, numIterations, 0.01)

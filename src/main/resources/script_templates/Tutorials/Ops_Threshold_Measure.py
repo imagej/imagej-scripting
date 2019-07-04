@@ -14,11 +14,14 @@
 from net.imglib2.algorithm.labeling.ConnectedComponents import StructuringElement
 from net.imglib2.roi import Regions;
 from net.imglib2.roi.labeling import LabelRegions;
+from net.imglib2.type.numeric.real import FloatType;
 
 # create a log kernel
 logKernel=ops.create().kernelLog(inputData.numDimensions(), sigma);
 
-logFiltered=ops.filter().convolve(inputData, logKernel)
+logFiltered=ops.filter().convolve(ops.create().img(inputData, FloatType()), inputData, logKernel)
+
+
 
 # otsu threshold and display
 thresholded = ops.threshold().otsu(logFiltered)

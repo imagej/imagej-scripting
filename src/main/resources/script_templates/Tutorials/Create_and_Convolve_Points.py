@@ -37,7 +37,7 @@ phantom.setName("phantom")
 psf=ops.create().kernelGauss([5, 5, 5])
 
 # convolve psf with phantom
-convolved=ops.filter().convolve(phantom, psf)
+convolved=ops.filter().convolve(ops.create().img(phantom), phantom, psf)
 
 # make convolved an ImgPlus
 convolved=ops.create().imgPlus(convolved);

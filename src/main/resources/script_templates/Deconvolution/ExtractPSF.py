@@ -56,4 +56,4 @@ beads32=ops.convert().float32(beads)
 points32=ops.convert().float32(points)
 
 # use "PSF Distilling" (reverse deconvolution) to solve for PSF
-psf=ops.deconvolve().richardsonLucy(beads32, points32, None, None, None, None, None, 30, False, True)
+psf=ops.deconvolve().richardsonLucy(ops.create().img(beads32), beads32, points32, None, None, None, None, None, 30, False, True)

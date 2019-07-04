@@ -6,7 +6,7 @@
 import net.imglib2.type.numeric.real.FloatType;
 import net.imagej.ops.Op
 import net.imglib2.outofbounds.OutOfBoundsConstantValueFactory
-import net.imagej.ops.deconvolve.RichardsonLucyF
+import net.imagej.ops.deconvolve.PadAndRichardsonLucy
 import net.imglib2.util.Util
 
 // create the sample image
@@ -24,22 +24,23 @@ ops.image().equation(kernel_small, "p[0]")
 ops.image().equation(kernel_big, "p[0]")
 
 // convolve with large and small kernel
+//convolved_small = ops.create().img(base, new FloatType())
 convolved_small = ops.filter().convolve(base, kernel_small)
-convolved_big = ops.filter().convolve(base, kernel_big)
+convolved_big = ops.filter().convolve(ops.create().img(base), base, kernel_big)
 
 ui.show(convolved_small);
 ui.show(convolved_big);
 
-base_deconvolved = ops.run(RichardsonLucyF.class, convolved_small, kernel_small, null, new OutOfBoundsConstantValueFactory<>(Util.getTypeFromInterval(kernel_small).createVariable()), 10)
+base_deconvolved = ops.run(PadAndRichardsonLucy.class, ops.create().img(convolved_small), convolved_small, kernel_small, null, new OutOfBoundsConstantValueFactory<>(Util.getTypeFromInterval(kernel_small).createVariable()), 10)
 
 // 50 iterations richardson lucy
-base_deconvolved_big = ops.run(RichardsonLucyF.class, convolved_big, kernel_big, 50);
+base_deconvolved_big = ops.run(PadAndRichardsonLucy.class, ops.create().img(convolved_big), convolved_big, kernel_big, 50);
 
 // 50 iterations non-circulant richardson lucy
-base_deconvolved_big_noncirc = ops.run(RichardsonLucyF.class, convolved_big, kernel_big, null, null,null, null, null,50,true,false );
+base_deconvolved_big_noncirc = ops.run(PadAndRichardsonLucy.class, ops.create().img(convolved_big), convolved_big, kernel_big, null, null,null, null, null,50,true,false );
 
 // 50 iterations non-circulant accelerated richardson lucy
-base_deconvolved_big_acc_noncirc = ops.run(RichardsonLucyF.class, convolved_big, kernel_big, null, null,null, null, null, 50, true, true)
+base_deconvolved_big_acc_noncirc = ops.run(PadAndRichardsonLucy.class, ops.create().img(convolved_big),convolved_big, kernel_big, null, null,null, null, null, 50, true, true)
 
 ui.show("RL",base_deconvolved_big)
 ui.show("RLNon-Circ",base_deconvolved_big_noncirc)

@@ -16,7 +16,7 @@ from ij import IJ
 # create a log kernel
 logKernel=ops.create().kernelLog(inputData.numDimensions(), sigma);
 
-logFiltered=ops.filter().convolve(inputData, logKernel)
+logFiltered=ops.filter().convolve(ops.create().img(inputData), inputData, logKernel)
 
 # otsu threshold and display
 thresholded = ops.threshold().otsu(logFiltered)
