@@ -1,3 +1,5 @@
+[![](https://github.com/imagej/imagej-scripting/actions/workflows/build-main.yml/badge.svg)](https://github.com/imagej/imagej-scripting/actions/workflows/build-main.yml)
+
 # imagej-scripting
 
 ImageJ-specific applications of the SciJava script languages.
