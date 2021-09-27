@@ -211,13 +211,13 @@ public class TutorialsScriptTest extends AbstractScriptTest {
 
 		final ImgPlus<T> output1 = (ImgPlus<T>) m.getOutput("filtered");
 		final double[] expected1 = { -2.0, -2.0, -2.0, -2.0, -2.0, -2.0, -2.0, -2.0,
-			-2.0, -2.0, -3.0, -3.0, -5.0, -7.0, -11.0, -15.0, -22.0, -29.0, -39.0,
+			-2.0, -2.0, -2.0, -3.0, -5.0, -7.0, -10.0, -15.0, -21.0, -29.0, -38.0,
 			-48.0, -59.0 };
 		assertSamplesEqual(output1, 0, expected1);
 
 		final ImgPlus<T> output2 = (ImgPlus<T>) m.getOutput("result");
 		final double[] expected2 = { 4.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0,
-			0.0, 4.0, 0.0, 5.0, 4.0, 11.0, 11.0, 22.0, 25.0, 40.0, 45.0, 61.0 };
+			2.0, 0.0, 1.0, 5.0, 6.0, 7.0, 14.0, 18.0, 27.0, 36.0, 46.0, 61.0 };
 		assertSamplesEqual(output2, 0, expected2);
 
 	}
