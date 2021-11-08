@@ -102,7 +102,7 @@
 	</mailingLists>
 
 	<scm>
-		<connection>scm:git:git://github.com/imagej/imagej-scripting</connection>
+		<connection>scm:git:https://github.com/imagej/imagej-scripting</connection>
 		<developerConnection>scm:git:git@github.com:imagej/imagej-scripting</developerConnection>
 		<tag>HEAD</tag>
 		<url>https://github.com/imagej/imagej-scripting</url>
