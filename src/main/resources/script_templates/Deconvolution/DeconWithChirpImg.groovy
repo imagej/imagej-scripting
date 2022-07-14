@@ -28,16 +28,16 @@ ui.show(exponentialChirp)
 
 plotProfile()
 
-// generate diffraction based psf
-IJ.run("Diffraction PSF 3D", "index=1.520 numerical=1.42 wavelength=510 "
-+ "longitudinal=0 image=10 slice=200 width,=512 height,=512 depth,=1 "
-+ "normalization=[Sum of pixel values = 1] title=PSF")
+psfSize=new FinalDimensions(new long[]{512,512});
 
-// get the psf
-psf=IJ.getImage()
+psf = ops.create().kernelDiffraction(psfSize, 1.42, 510e-9,
+				1.5, 1.5, 32.5e-9, 150e-9, 0, new FloatType());
 
-// convert to imglib img
-psf=ImageJFunctions.wrapFloat(psf)
+sumpsf=ops.stats().sum(psf);
+
+// normalize psf
+sumpsf=new FloatType(sumpsf.getRealFloat());
+psf=ops.math().divide(psf, sumpsf);
 
 // convolve chirp and psf
 convolved=ops.filter().convolve(exponentialChirp, psf)
