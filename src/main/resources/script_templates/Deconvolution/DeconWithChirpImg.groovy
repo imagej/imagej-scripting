@@ -51,19 +51,25 @@ ui.show("noisy", noisy)
 
 plotProfile()
 
-// deconvolve
+// deconvolve using classical Richardson Lucy
 deconvolved=ops.deconvolve().richardsonLucy(noisy, psf,10)
 ui.show("deconvolved", deconvolved)
 plotProfile()
 
-deconvolved_accelerated=ops.deconvolve().richardsonLucy(noisy, psf, null, null, null, null, null, 10, false, true)
+// deconvolve using accelerated Richardson Lucy
+deconvolved_accelerated=ops.create().img(noisy, new FloatType())
+deconvolved_accelerated=ops.deconvolve().richardsonLucy(deconvolved_accelerated,noisy, psf, null, null, null, null, null, 10, false, true)
 ui.show("deconvolved accelerated", deconvolved_accelerated)
 plotProfile()
 
-deconvolved_rltv=ops.deconvolve().richardsonLucyTV(noisy, psf, 10, 0.01)
+// deconvolve using Richardson Lucy with total variation
+deconvolved_rltv=ops.create().img(noisy, new FloatType())
+deconvolved_rltv=ops.deconvolve().richardsonLucyTV(deconvolved_rltv,noisy, psf, 10, 0.01)
 ui.show("deconvolved rltv", deconvolved_rltv)
 plotProfile()
 
-deconvolved_rltv_accelerated=ops.deconvolve().richardsonLucyTV(noisy, psf, null, null, null, null, null, 10, false, true, 0.01)
+// deconvolve using accelerated Richardson Lucy with total variation
+deconvolved_rltv_accelerated=ops.create().img(noisy, new FloatType())
+deconvolved_rltv_accelerated=ops.deconvolve().richardsonLucyTV(deconvolved_rltv_accelerated,noisy, psf, null, null, null, null, null, 10, false, true, 0.01)
 ui.show("deconvolved rltv accelerated", deconvolved_rltv_accelerated)
 plotProfile()
