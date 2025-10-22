@@ -1,6 +1,7 @@
 #@ OpService ops
 #@ UIService ui
 #@ Img (label = "Input image:", autofill = false) img
+#@ String (visibility = MESSAGE, value ="<b>[ Deconvolution settings ]</b>", required = false) msg
 #@ Integer (label="Iterations", value=15) iterations
 #@ Float (label="Numerical Aperture", style="format:0.00", min=0.00, value=1.45) numerical_aperture
 #@ Integer (label="Emission Wavelength (nm)", value=457) wavelength
@@ -55,7 +56,7 @@ lateral_spacing *= 1E-6
 axial_spacing *= 1E-6
 p_z *= 1E-6
 
-# create the synthetic PSF
+# create the simulated PSF
 psf = ops.create().kernelDiffraction(
     psf_size,
     numerical_aperture,
