@@ -93,7 +93,7 @@ if (show_rl_nc) {
   ui.show("Ricahrdson-Lucy non-circulant", rl_nc_decon_img)
 }
 
-// deconvolve with accelerated non-circulalant Richardson Lucyi
+// deconvolve with accelerated non-circulalant Richardson Lucy
 if (show_rl_acc_nc) {
   rl_acc_nc_decon_img = ops.create().img(conv_img, new FloatType())
   ops.deconvolve().richardsonLucy(rl_acc_nc_decon_img,
