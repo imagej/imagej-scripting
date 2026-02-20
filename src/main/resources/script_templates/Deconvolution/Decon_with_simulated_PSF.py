@@ -7,9 +7,9 @@
 #@ Integer (label="Emission Wavelength (nm)", value=457) wavelength
 #@ Float (label="Refractive Index (immersion)", style="format:0.00", min=0.00, value=1.5) ri_immersion
 #@ Float (label="Refractive Index (sample)", style="format:0.00", min=0.00, value=1.4) ri_sample
-#@ Float (label="Lateral spacing (μm/pixel)", style="format:0.0000", min=0.0000, value=0.065) lateral_spacing
-#@ Float (label="Axial spacing (μm/pixel)", style="format:0.0000", min=0.0000, value=0.1) axial_spacing
-#@ Float (label="Particle/sample Position (μm)", style="format:0.0000", min=0.0000, value=0) p_z
+#@ Float (label="XY spacing (um/pixel)", style="format:0.0000", min=0.0000, value=0.065) lateral_spacing
+#@ Float (label="Z spacing (um/pixel)", style="format:0.0000", min=0.0000, value=0.1) axial_spacing
+#@ Float (label="Particle/sample Position (um)", style="format:0.0000", min=0.0000, value=0) p_z
 #@ Float (label="Regularization factor", style="format:0.00000", min=0.00000, value=0.002) reg_factor
 #@ Boolean (label = "Show PSF:", value = false) show_psf
 #@output Img result
