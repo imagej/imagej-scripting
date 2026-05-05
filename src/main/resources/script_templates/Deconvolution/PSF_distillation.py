@@ -1,6 +1,8 @@
 #@ OpService ops
-#@ ImgPlus beads
-#@output ImgPlus thresholded
+#@ ImgPlus (label = "Input image:", autofill = false) beads
+#@ String (visibility = MESSAGE, value ="<b>[ Point Spread Function (PSF) distilling settings ]</b>", required = false) psf_msg
+#@ String (label="Global threshold method:", choices={"huang", "ij1", "intermodes", "isoData", "li", "maxEntropy", "maxLikelihood", "mean", "minError", "minimum", "moments", "otsu", "percentile", "renyiEntropy", "rosin", "shanbhag", "triangle", "yen"}, style="listBox") method
+#@output ImgPlus threshold_image
 #@output ImgPlus points
 #@output ImgPlus psf
 
@@ -22,16 +24,11 @@ from net.imglib2.type.numeric.real import FloatType
 #    at sub-resolution locations.  However as long as we have enough beads the error
 #    in position should "even out".
 
-# get dimensions of bead image
-xSize = beads.dimension(0)
-ySize = beads.dimension(1)
-zSize = beads.dimension(2)
-
 # create an empty image to store the points
-points = ops.create().img([xSize, ySize, zSize])
+points = ops.create().img(beads.dimensionsAsLongArray())
 
 # otsu threshold to find the beads
-thresholded = ops.threshold().otsu(beads)
+thresholded = ops.run("threshold.{}".format(method), beads)
 
 # call connected components to label each connected region
 labeling = ops.labeling().cca(thresholded, StructuringElement.FOUR_CONNECTED)
@@ -66,6 +63,6 @@ outType = FloatType()
 fftType = None
 maxIterations = 30
 nonCirculant = False
-accelerate = True # The default is False.
+accelerate = True
 psf = ops.create().img(image, outType)
 ops.deconvolve().richardsonLucy(psf, beads32, points32, borderSize, obfInput, obfKernel, outType, fftType, maxIterations, nonCirculant, accelerate)
