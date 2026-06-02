@@ -1,17 +1,16 @@
-#@ OpService ops
+#@ OpEnvironment ops
 #@ UIService ui
 #@ Img (label = "Input image:", autofill = false) img
-#@ String (visibility = MESSAGE, value ="<b>[ Deconvolution settings ]</b>", required = false) msg
-#@ Integer (label="Iterations", value=15) iterations
-#@ Float (label="Numerical Aperture", style="format:0.00", min=0.00, value=1.45) numerical_aperture
-#@ Integer (label="Emission Wavelength (nm)", value=457) wavelength
-#@ Float (label="Refractive Index (immersion)", style="format:0.00", min=0.00, value=1.5) ri_immersion
-#@ Float (label="Refractive Index (sample)", style="format:0.00", min=0.00, value=1.4) ri_sample
-#@ Float (label="XY spacing (um/pixel)", style="format:0.0000", min=0.0000, value=0.065) lateral_spacing
-#@ Float (label="Z spacing (um/pixel)", style="format:0.0000", min=0.0000, value=0.1) axial_spacing
-#@ Float (label="Particle/sample Position (um)", style="format:0.0000", min=0.0000, value=0) p_z
-#@ Float (label="Regularization factor", style="format:0.00000", min=0.00000, value=0.002) reg_factor
-#@ Boolean (label = "Show PSF:", value = false) show_psf
+#@ Integer (label = "Iterations", value = 15) iterations
+#@ Float (label = "Numerical Aperture", style = "format:0.00", min = 0.00, value = 1.45) numericalAperture
+#@ Integer (label = "Emission Wavelength (nm)", value = 457) wavelength
+#@ Float (label = "Refractive Index (immersion)", style = "format:0.00", min = 0.00, value = 1.5) riImmersion
+#@ Float (label = "Refractive Index (sample)", style = "format:0.00", min = 0.00, value = 1.4) riSample
+#@ Float (label = "XY spacing (um/pixel)", style = "format:0.0000", min = 0.0000, value = 0.065) lateral_res
+#@ Float (label = "Z spacing (um/pixel)", style = "format:0.0000", min = 0.0000, value = 0.1) axial_res
+#@ Float (label="Particle/sample Position (um)", style = "format:0.0000", min = 0.0000, value = 0) pZ
+#@ Float (label = "Regularization factor", style = "format:0.00000", min = 0.00000, value = 0.002) regularizationFactor
+#@ Boolean (label = "Show PSF", value = false) show_psf
 #@output Img result
 
 # Richardson-Lucy Total Variation deconvolution with a simulated point spread function.
@@ -43,35 +42,36 @@
 
 from net.imglib2 import FinalDimensions
 from net.imglib2.type.numeric.real import FloatType
+from net.imglib2.type.numeric.complex import ComplexFloatType
+from java.lang import Float
 
 # convert input image to float
-img = ops.convert().float32(img)
+img_float = ops.op("create.img").input(img, FloatType()).apply()
+ops.op("convert.float32").input(img).output(img_float).compute()
 
 # use image dimensions for PSF size
 psf_size = FinalDimensions(img.dimensionsAsLongArray())
 
 # convert the input parameters to meters (m)
 wavelength = float(wavelength) * 1E-9
-lateral_spacing *= 1E-6
-axial_spacing *= 1E-6
-p_z *= 1E-6
+lateral_res = lateral_res * 1E-6
+axial_res = axial_res * 1E-6
+pZ = pZ * 1E-6
 
-# create the simulated PSF
-psf = ops.create().kernelDiffraction(
-    psf_size,
-    numerical_aperture,
-    wavelength,
-    ri_sample,
-    ri_immersion,
-    lateral_spacing,
-    axial_spacing,
-    p_z,
-    FloatType()
-    )
+# create the synthetic PSF
+psf = ops.op("create.kernelDiffraction").input(psf_size,
+                                                        numericalAperture,
+                                                        wavelength,
+                                                        riSample,
+                                                        riImmersion,
+                                                        lateral_res,
+                                                        axial_res,
+                                                        pZ,
+                                                        FloatType()).apply()
 
 # deconvolve image
-result = ops.deconvolve().richardsonLucyTV(img, psf, iterations, reg_factor)
+result = ops.op("deconvolve.richardsonLucyTV").input(img_float, psf, FloatType(), ComplexFloatType(), iterations, False, False, Float(regularizationFactor)).apply()
 
-# optionally show the PSF
+# optionally show PSF
 if show_psf:
     ui.show("PSF", psf)

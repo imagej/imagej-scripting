@@ -1,8 +1,8 @@
-#@ OpService ops
+#@ OpEnvironment ops
 #@ UIService ui
 #@ String (visibility = MESSAGE, value ="<b>[ Deconvolution settings ]</b>", required = false) decon_msg
-#@ Integer (label = "Grid image X dimension size:", min = 0, value = 150) x_dim
-#@ Integer (label = "Grid image Y dimension size:", min = 0, value = 100) y_dim
+#@ Integer (label = "Grid image X dimension size:", min = 0, value = 150) x_ax
+#@ Integer (label = "Grid image Y dimension size:", min = 0, value = 100) y_ax
 #@ Integer (label = "Number of iterations", min = 0, value = 15) iterations
 #@ String (visibility = MESSAGE, value ="<b>[ Show results settings ]</b>", required = false) show_msg
 #@ Boolean (label = "Show input image:", value = true) show_grid
@@ -13,8 +13,6 @@
 #@ Boolean (label = "Show RL non-circulant reuslt:", value = true) show_rl_nc
 #@ Boolean (label = "Show RL accelerated non-circulant result:", value = true) show_rl_acc_nc
 
-import net.imglib2.type.numeric.real.FloatType
-
 // Richardson-Lucy deconvolution with a simulated grid image.
 //
 // This script utilizes the ImageJ Ops implementation of Richardson-Lucy (RL) and
@@ -23,8 +21,8 @@ import net.imglib2.type.numeric.real.FloatType
 // image with a simple gradient kernel and performs the various RL deconvolution
 // strategies such as accelerated processing and non-circulant deconvolution.
 //
-// See https://imagej.net/libs/imagej-ops/deconvolution for more information on
-// RL/RLTV deconvolution with ImageJ Ops.
+// See https://imagej.net/imaging/deconvolution for more information on RL/RLTV
+// deconvolution.
 //
 // Arguments
 //    * `x_dim`: The grid image X dimension size.
@@ -41,71 +39,92 @@ import net.imglib2.type.numeric.real.FloatType
 //   * `rl_acc_nc_decon_img`: The Richardson-Lucy accelerated non-circulant deconvolution
 //      result.
 
+import net.imglib2.img.array.ArrayImgs
+import net.imglib2.FinalDimensions
+import net.imglib2.type.numeric.real.FloatType
+import net.imglib2.type.numeric.complex.ComplexFloatType
+
 // create a sample grid image with the given X and Y dimensions
-// where each pixel is assigned the value (x² * y)
-grid_img = ops.run("create.img", [x_dim, y_dim], new FloatType())
-formula = "p[0]^2 * p[1]"
-ops.image().equation(grid_img, formula)
+// where each pixel is assigned the value (x XOR (2 * y))
+// grid_shape = new FinalDimensions([x_ax, y_ax] as long[])
+// grid_img = ops.op("create.img").input(grid_shape, new FloatType()).apply()
+grid_img = ops.op("create.img").input([x_ax, y_ax] as long[]).apply()
+grid_cursor = grid_img.localizingCursor()
+pos = new long[2]
+while (grid_cursor.hasNext()) {
+  grid_cursor.fwd()
+  grid_cursor.localize(pos)
+  x = pos[0]
+  y = pos[1]
+  grid_cursor.get().setReal(x ^ (2 * y))
+}
 if (show_grid) {
   ui.show("input grid image", grid_img)
 }
 
 // create a gradient kernel and convolve the grid image
-kernel = ops.run("create.img", [20,20], new  FloatType())
-ops.image().equation(kernel, "p[0]")
+kernel_shape = new FinalDimensions([20, 20] as long[])
+kernel_img = ops.op("create.img").input(kernel_shape, new FloatType()).apply()
+kernel_cursor = kernel_img.localizingCursor()
+while (kernel_cursor.hasNext()) {
+  kernel_cursor.fwd()
+  kernel_cursor.localize(pos)
+  x = pos[0]
+  kernel_cursor.get().setReal(x)
+}
 if (show_kernel) {
-  ui.show("gradient kernel", kernel)
+  ui.show("gradient kernel", kernel_img)
 }
 
 // convolve the grid image with the gradient kernel
-conv_img= ops.filter().convolve(grid_img, kernel)
+conv_img = ops.op("filter.convolve").input(grid_img, kernel_img).apply()
 if (show_conv) {
   ui.show("convolved grid image", conv_img)
 }
 
 // deconvolve with Richardson-Lucy (RL)
 if (show_rl) {
-  rl_decon_img = ops.deconvolve().richardsonLucy(conv_img, kernel, iterations)
+  rl_decon_img = ops.op("deconvolve.richardsonLucy").input(conv_img,
+                                                           kernel_img,
+                                                           new FloatType(),
+                                                           new ComplexFloatType(),
+                                                           iterations).apply()
   ui.show("Richardson-Lucy", rl_decon_img)
 }
 
 // deconvolve with Richardson-Lucy Total Variation (RLTV)
 if (show_rltv) {
-  rltv_decon_img = ops.deconvolve().richardsonLucyTV(conv_img, kernel, iterations, 0.002)
+  rltv_decon_img = ops.op("deconvolve.richardsonLucyTV").input(conv_img,
+                                                               kernel_img,
+                                                               new FloatType(),
+                                                               new ComplexFloatType(),
+                                                               iterations,
+                                                               false,
+                                                               false,
+                                                               0.002f).apply()
   ui.show("Richardson-Lucy TV", rltv_decon_img)
 }
 
 // deconvolve with non-circulant Richardson-Lucy
 if (show_rl_nc) {
-  // create the output image (empty) for the deconvlution Op
-  rl_nc_decon_img = ops.create().img(conv_img, new FloatType())
-  ops.deconvolve().richardsonLucy(rl_nc_decon_img,
-                                  conv_img,
-                                  kernel,
-                                  null,
-                                  null,
-                                  null,
-                                  null,
-                                  null,
-                                  iterations,
-                                  true,
-                                  false)
+  rl_nc_decon_img = ops.op("deconvolve.richardsonLucy").input(conv_img,
+                                             kernel_img,
+                                             new FloatType(),
+                                             new ComplexFloatType(),
+                                             iterations,
+                                             true,
+                                             false).apply()
   ui.show("Ricahrdson-Lucy non-circulant", rl_nc_decon_img)
 }
 
 // deconvolve with accelerated non-circulalant Richardson Lucy
 if (show_rl_acc_nc) {
-  rl_acc_nc_decon_img = ops.create().img(conv_img, new FloatType())
-  ops.deconvolve().richardsonLucy(rl_acc_nc_decon_img,
-                                  conv_img,
-                                  kernel,
-                                  null,
-                                  null,
-                                  null,
-                                  null,
-                                  null,
-                                  iterations,
-                                  true,
-                                  true)
+  rl_acc_nc_decon_img = ops.op("deconvolve.richardsonLucy").input(conv_img,
+                                             kernel_img,
+                                             new FloatType(),
+                                             new ComplexFloatType(),
+                                             iterations,
+                                             true,
+                                             true).apply()
   ui.show("Richardson-Lucy accelerated non-circulant", rl_acc_nc_decon_img)
 }
