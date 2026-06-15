@@ -37,7 +37,7 @@
 //   * `rltv_decon_img`: The Richardson-Lucy Total Variation deconvolution result.
 //   * `rl_nc_decon_img`: The Richardson-Lucy non-circulant deconvolution result.
 //   * `rl_acc_nc_decon_img`: The Richardson-Lucy accelerated non-circulant deconvolution
-//      result.
+//     result.
 
 import net.imglib2.img.array.ArrayImgs
 import net.imglib2.FinalDimensions

@@ -15,7 +15,7 @@
 
 # Richardson-Lucy Total Variation deconvolution with a simulated point spread function.
 #
-# This script utilizes an ImageJ Ops implementation of Richardson-Lucy Total Variation (RLTV)
+# This script utilizes a SciJava Ops implementation of Richardson-Lucy Total Variation (RLTV)
 # deconvolution as described by Dey et al. 2006 and a simulated point spread function (PSF)
 # using the Gibson-Lanni model.
 #
