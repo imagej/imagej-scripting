@@ -2,4 +2,6 @@
 .metadata
 .project
 .settings/
+/.factorypath
+/.idea/
 /target/
