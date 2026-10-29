@@ -33,27 +33,27 @@ package net.imagej.scripting;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import io.scif.SCIFIOService;
-import io.scif.img.ImgUtilityService;
-import io.scif.img.converters.PlaneConverterService;
-import io.scif.services.DatasetIOService;
-import io.scif.services.InitializeService;
-import io.scif.xml.XMLService;
-
-import net.imagej.Dataset;
-import net.imagej.ImageJService;
-import net.imagej.ops.OpService;
-import net.imglib2.IterableInterval;
-import net.imglib2.type.numeric.RealType;
-
 import org.junit.After;
 import org.junit.Before;
 import org.scijava.Context;
 import org.scijava.cache.CacheService;
 import org.scijava.plugin.Parameter;
 import org.scijava.script.ScriptService;
+import org.scijava.task.TaskService;
 import org.scijava.ui.UIService;
 import org.scijava.widget.WidgetService;
+
+import io.scif.SCIFIOService;
+import io.scif.img.ImgUtilityService;
+import io.scif.img.converters.PlaneConverterService;
+import io.scif.services.DatasetIOService;
+import io.scif.services.InitializeService;
+import io.scif.xml.XMLService;
+import net.imagej.Dataset;
+import net.imagej.ImageJService;
+import net.imagej.ops.OpService;
+import net.imglib2.IterableInterval;
+import net.imglib2.type.numeric.RealType;
 
 /**
  * @author Hadrien Mary
@@ -77,7 +77,7 @@ public abstract class AbstractScriptTest implements ScriptTest {
 			ImageJService.class, CacheService.class, WidgetService.class,
 			ImgUtilityService.class, PlaneConverterService.class,
 			InitializeService.class, XMLService.class, SCIFIOService.class,
-			UIService.class);
+			TaskService.class, UIService.class);
 	}
 
 	/**
